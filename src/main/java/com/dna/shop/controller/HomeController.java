@@ -14,6 +14,6 @@ public class HomeController {
     @GetMapping("/")
     public String homeView(Model model) {
         model.addAttribute("TOTAL_QUANTITIES", cartService.getTotalQuantities());
-        return "trang-chu";
+        return "/trang-chu";
     }
 }
