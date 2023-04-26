@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/admin/process_create_product}"
+      th:object="${productCreate}"
+      method="POST">
+  <div>
+    <label for="code">Mã sản phẩm: </label>
+    <input id="code" type="text" th:field="*{productCode}" name="code" />
+  </div>
+  <div>
+    <label for="name">Tên sản phẩm: </label>
+    <input id="name" type="text" th:field="*{productName}" name="name" />
+  </div>
+  <div>
+    <label for="price">Giá bán: </label>
+    <input id="price" type="number" th:field="*{price}" name="price" />
+  </div>
+  <div>
+    <label for="category">Tên danh mục: </label>
+    <select name="category" id="category" th:field="*{categoryId}">
+        <option th:each="category : ${categories}" th:text="${category.name}" th:value="${category.id}"></option>
+    </select>
+  </div>
+  <div>
+    <label for="thumbnail">Link thumbnail: </label>
+    <input id="thumbnail" type="text" th:field="*{thumbnail}" name="thumbnail" />
+  </div>
+<!--  Button Tạo-->
+  <div>
+    <input th:type="submit" value="Tạo Sản Phẩm">
+  </div>
+</form>
+</body>
+</html>

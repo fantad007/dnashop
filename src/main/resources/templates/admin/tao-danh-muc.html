@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/admin/process_create_category}"
+      th:object="${categoryCreate}"
+      method="POST">
+    <div>
+        <label for="category">Tên danh mục: </label>
+        <input id="category" type="text" th:field="*{category}" name="category" />
+    </div>
+    <!--  Button Tạo-->
+    <div>
+        <input th:type="submit" value="Tạo Danh Mục">
+    </div>
+</form>
+</body>
+</html>

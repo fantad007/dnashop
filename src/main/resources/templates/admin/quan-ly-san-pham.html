@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        $( document ).ready(function() {
+            var colorId = $( "#color" ).val();
+            $("#add-image").attr("href", "/admin/tao-hinh-anh/" + colorId);
+            $('select').on('change', '', function (e) {
+                $("#add-image").attr("href", "/admin/tao-hinh-anh/" + $( "#color" ).val());
+            });
+        });
+    </script>
+</head>
+<body>
+<div>
+    <table>
+        <tr>
+            <th>DANH MỤC</th>
+            <th>MÃ SẢN PHẨM</th>
+            <th>TÊN SẢN PHẨM</th>
+            <th>ĐƠN GIÁ</th>
+            <th>SIZE</th>
+            <th>MÀU SẮC</th>
+            <th></th>
+            <th>CHỌN MÀU SẮC</th>
+            <th>THÊM ẢNH ĐẠI DIỆN SẢN PHẨM</th>
+        </tr>
+        <tr th:each="mpd : ${manageProductDtos}">
+            <td th:text="${mpd.category}"></td>
+            <td th:text="${mpd.productCode}"></td>
+            <td th:text="${mpd.productName}"></td>
+            <td th:text="${#numbers.formatDecimal(mpd.price, 0, 'POINT', 0, 'POINT')} + 'đ'"></td>
+            <td th:text="${mpd.size}"></td>
+            <td>
+                <th:block th:each="c, iStat : ${mpd.colors}">
+                    <th:block th:if="${iStat.index == (mpd.colors.size() - 1)}">
+                        <span th:text="${c}"></span>
+                    </th:block>
+                    <th:block th:if="${iStat.index != (mpd.colors.size() - 1)}">
+                        <span th:text="${c} + ', '"></span>
+                    </th:block>
+                </th:block>
+            </td>
+            <td><a th:href="@{|/admin/tao-mau-sac/${mpd.sizeId}|}">Thêm màu sắc</a></td>
+            <td th:object="${mpd}">
+                <select name="color" id="color">
+                    <option th:each="c : ${mpd.colorEntityList}" th:text="${c.name}" th:value="${c.id}"></option>
+                </select>
+                <a id="add-image" href="">Thêm hình ảnh</a>
+            </td>
+            <td><a th:href="@{|/admin/tao-anh-dai-dien/${mpd.productId}|}">Thêm ảnh đại diện</a></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

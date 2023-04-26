@@ -1,0 +1,91 @@
+header {
+  height: 48px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 0 48px;
+}
+header .menu-logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #1f1f1f;
+}
+header .menu-logo .logo {
+  width: 48px;
+  height: 48px;
+  padding: 5px;
+}
+header .menu-logo .logo img {
+  width: 100%;
+}
+header .menu-logo span {
+  font-size: 1.5em;
+  font-weight: 900;
+}
+header .menu {
+  height: 48px;
+  display: flex;
+  align-items: center;
+}
+header .menu .menu-title {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+header .menu .menu-title .tab {
+  display: flex;
+  align-items: center;
+  margin-right: 25px;
+}
+header .menu .menu-title .tab span {
+  font-size: 16px;
+  color: #1f1f1f;
+}
+header .menu .menu-title .tab .active {
+  font-weight: 700;
+  text-decoration: underline;
+}
+header .cd-dropdown-wrapper {
+  width: 48px;
+  height: 48px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+header .cd-dropdown-wrapper i {
+  color: #1f1f1f;
+}
+@media screen and (max-width: 921px) {
+  header .menu-title .tab span {
+    display: none;
+  }
+}
+@media screen and (max-width: 559px) {
+  header a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  header a .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  header a .logo img {
+    width: 40px;
+  }
+  header .menu {
+    display: none;
+  }
+  header .cd-dropdown-wrapper {
+    display: flex;
+  }
+}
+header a {
+  text-decoration: none;
+}
+
+/*# sourceMappingURL=header.css.map */

@@ -1,0 +1,24 @@
+package com.dna.shop.entity;
+
+import com.dna.shop.entity.base.BaseAuditEntity;
+import lombok.*;
+
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@Table(name = "image")
+public class ImageEntity extends BaseAuditEntity {
+    private String link;
+    @ManyToOne
+    @JoinColumn(name = "color_id")
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private ColorEntity color;
+}

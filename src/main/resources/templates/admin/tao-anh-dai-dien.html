@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<form th:action="@{/admin/process_create_image_represent}"
+      th:object="${imageRepresentCreate}" method="POST">
+  <div>
+    <label for="product">ID Sản Phẩm: </label>
+    <input id="product" type="text" th:field="*{productId}" name="product" th:value="${imageRepresentCreate.productId}"/>
+  </div>
+  <div>
+    <label for="image">Link ảnh: </label>
+    <input id="image" type="text" th:field="*{link}" name="image" />
+  </div>
+
+  <!--  Button Tạo-->
+  <div>
+    <input th:type="submit" value="Tạo Ảnh">
+  </div>
+</form>
+</body>
+</html>

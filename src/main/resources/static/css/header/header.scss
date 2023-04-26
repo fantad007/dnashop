@@ -1,0 +1,93 @@
+header {
+    height: 48px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 0 48px;
+    .menu-logo {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        color: #1f1f1f;
+        .logo {
+            width: 48px;
+            height: 48px;
+            padding: 5px;
+            img {
+                width: 100%;
+            }
+        }
+        span {
+            font-size: 1.5em;
+            font-weight: 900;
+        }
+    }
+    .menu {
+        height: 48px;
+        display: flex;
+        align-items: center;
+        .menu-title {
+            display: flex;
+            flex-direction: row;
+            align-items: baseline;
+            .tab {
+                display: flex;
+                align-items: center;
+                margin-right: 25px;
+                span {
+                    font-size: 16px;
+                    color: #1f1f1f;
+                }
+                .active {
+                    font-weight: 700;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+    .cd-dropdown-wrapper {
+        width: 48px;
+        height: 48px;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        i {
+            color: #1f1f1f;
+        }
+    }
+    @media screen and (max-width: 921px) {
+        .menu-title {
+            .tab {
+                span {
+                    display: none;
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 559px) {
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .logo {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                img {
+                    width: 40px;
+                }
+            }
+        }
+        .menu {
+            display: none;
+        }
+        .cd-dropdown-wrapper {
+            display: flex;
+        }
+    }
+    a {
+        text-decoration: none;
+    }
+}

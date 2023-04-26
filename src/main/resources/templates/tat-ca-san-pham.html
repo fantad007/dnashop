@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+    <title>DNA - TẤT CẢ SẢN PHẨM</title>
+	<link rel="icon" href="images/logo.svg" type="image/svg+xml">
+	<link rel="stylesheet" href="font-awesome-pro-master/css/all.css">
+	<link rel="stylesheet" href="css/main/products/products.css">
+	<link rel="stylesheet" href="css/main/main.css">
+	<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="container">
+    <div th:replace="/fragments/header :: header-body"></div>
+    <main>
+		<div th:replace="/fragments/utility-oasis :: utility-oasis-body"></div>
+		<div class="web-content">
+			<div class="products">
+				<div class="banner">
+					<a href=""><img src="images/banner.png" alt=""></a>
+				</div>
+				<div class="title">
+					<h2>TẤT CẢ SẢN PHẨM</h2>
+				</div>
+				<div class="list-products">
+					<th:block th:each="p: ${LIST_PRODUCT}">
+						<div class="card">
+							<div class="thumbnail">
+								<img th:src="${p.thumbnail}" alt="">
+							</div>
+							<div class="price">
+								<h3 class="product-name" th:text="${p.name}"></h3>
+								<p th:text="${#numbers.formatDecimal(p.price, 0, 'POINT', 0, 'POINT')} + 'đ'"></p>
+								<div>
+									<a th:href="@{/chi-tiet-san-pham(id=${p.id})}">XEM CHI TIẾT</a>
+								</div>
+							</div>
+						</div>
+					</th:block>
+				</div>
+			</div>
+		</div>
+    </main>
+	<div th:replace="/fragments/footer :: footer-body"></div>
+</div>
+<script src="js/modernizr.js"></script>
+<script src="js/jquery-2.1.1.js"></script>
+<script src="js/jquery.menu-aim.js"></script>
+<script src="js/main.js"></script>
+<script>
+    $( document ).ready(function() {
+        $('.products-tab').addClass('active');
+    });
+</script>
+</body>
+</html>
+

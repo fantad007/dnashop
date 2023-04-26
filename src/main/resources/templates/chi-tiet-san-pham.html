@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <title th:text="${title}"></title>
+    <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="font-awesome-pro-master/css/all.css">
+    <link rel="stylesheet" href="css/main/product-detail/product-detail.css">
+    <link rel="stylesheet" href="css/main/main.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .size-info {
+            display: flex;
+            margin-top: 5px;
+        }
+        .size-info form {
+            margin-right: 10px;
+        }
+        .color-li {
+            margin: 20px 0 !important;
+        }
+        .size, .color {
+            border: 1px solid #1f1f1f;
+            border-radius: 3px;
+            padding: 5px;
+            display: inline-block;
+            text-align: center;
+            cursor: pointer;
+        }
+        .color {
+            margin: 5px 5px 0 0;
+        }
+        .size:hover, .color:hover {
+            background-color: #e6e6e6;
+        }
+        .chooseSize, .chooseColor {
+            background-color: #1f1f1f;
+            color: #fff;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="js/product-detail-js/sizeHandleScript.js"></script>
+</head>
+<body>
+<div class="container">
+    <div th:replace="/fragments/header :: header-body"></div>
+    <main>
+        <div th:replace="/fragments/utility-oasis :: utility-oasis-body"></div>
+        <div class="web-content">
+            <div class="card-wrapper">
+                <div class="card">
+                    <!-- card left -->
+                    <div class="product-imgs">
+                        <div class="img-display">
+                            <div class="img-showcase">
+                                <th:block th:each="img : ${productDetail.imageRepresents}">
+                                    <img th:src="${img.link}" alt="t-shirt image">
+                                </th:block>
+                            </div>
+                        </div>
+                        <div class="img-select">
+                            <th:block th:each="img, iStat : ${productDetail.imageRepresents}">
+                                <div class="img-item">
+                                    <a href="#" th:attr="data-id=${iStat.index + 1}">
+                                        <img th:src="${img.link}" alt="t-shirt image">
+                                    </a>
+                                </div>
+                            </th:block>
+                        </div>
+                    </div>
+                    <!-- card right -->
+                    <div class="product-content">
+                        <h2 class="product-title" th:text="${productDetail.productName}"></h2>
+                        <p id="productId" th:text="${productDetail.id}" style="display:none"></p>
+                        <a href="#" class="product-link">đánh giá của khách hàng</a>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>4.7(21)</span>
+                        </div>
+                        <div class="product-price">
+                            <p class="last-price">Giá gốc: <span th:text="${#numbers.formatDecimal(productDetail.price * 0.05 + productDetail.price, 0, 'COMMA', 0, 'POINT')} + 'đ'"></span></p>
+                            <p class="new-price">Giá hiện tại: <span th:text="${#numbers.formatDecimal(productDetail.price, 0, 'POINT', 0, 'POINT')} + 'đ'"></span><span> (5%)</span></p>
+                        </div>
+                        <div class="product-detail">
+                            <h2>mô tả sản phẩm: </h2>
+                            <p th:text="${productDetail.shortDesc}"></p>
+                            <ul>
+                                <li>SIZE:
+                                        <div class="size-info">
+                                            <th:block th:each="size : ${productDetail.sizes}">
+                                                <form id="form-size" th:action="@{|/api/san-pham/chi-tiet-san-pham/cap-nhat-size/${size.id}|}" method="get">
+                                                    <span class="size" th:text="|Size ${size.size}|" th:value="${size.id}"></span>
+                                                </form>
+                                            </th:block>
+                                        </div>
+                                </li>
+                                <li class="color-li">MÀU SẮC (HIỂN THỊ THEO SIZE): <br>
+                                </li>
+                                <li>TÌNH TRẠNG: <span>in stock</span></li>
+                                <li>DANH MỤC: <span th:text="${productDetail.category.name}"></span></li>
+                                <li>KHU VỰC GIAO HÀNG: <span>Việt Nam</span></li>
+                                <li><span>Free ship cho đơn hàng từ 800.000đ</span></li>
+                            </ul>
+                        </div>
+                        <div class="purchase-info">
+                            <!--<input type="number" min="0" value="1">-->
+                            <button type="button" class="btn">
+                                <a id="add-to-cart">THÊM VÀO GIỎ HÀNG</a> <i class="far fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                        <div class="social-links">
+                            <p>Chia Sẻ: </p>
+                            <a href="#">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fab fa-pinterest"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div th:replace="/fragments/footer :: footer-body"></div>
+</div>
+<script src="js/product-detail-js/script.js"></script>
+<script src="js/modernizr.js"></script>
+<script src="js/jquery-2.1.1.js"></script>
+<script src="js/jquery.menu-aim.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

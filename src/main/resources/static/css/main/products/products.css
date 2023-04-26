@@ -1,0 +1,58 @@
+.products {
+  width: 100%;
+  color: #1f1f1f;
+}
+.products .banner a img {
+  width: 100%;
+}
+.products .title {
+  text-align: center;
+  padding: 30px;
+}
+.products .list-products {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+}
+.products .list-products .card {
+  margin-bottom: 60px;
+  width: 100%;
+}
+.products .list-products .card .thumbnail {
+  width: 100%;
+}
+.products .list-products .card .thumbnail img {
+  width: 100%;
+}
+.products .list-products .card .price {
+  text-align: center;
+}
+.products .list-products .card .price .product-name {
+  font-weight: 700;
+}
+.products .list-products .card .price div {
+  margin-top: 20px;
+}
+.products .list-products .card .price div a {
+  text-decoration: none;
+  color: #1f1f1f;
+  border: 1px solid #1f1f1f;
+  padding: 10px;
+}
+@media screen and (max-width: 849px) {
+  .products .list-products {
+    grid-template-columns: 33.3333333333% 33.3333333333% 33.3333333333%;
+  }
+}
+@media screen and (max-width: 699px) {
+  .products .list-products {
+    grid-template-columns: 50% 50%;
+  }
+}
+@media screen and (max-width: 399px) {
+  .products .list-products {
+    grid-template-columns: 100%;
+  }
+}
+
+/*# sourceMappingURL=products.css.map */

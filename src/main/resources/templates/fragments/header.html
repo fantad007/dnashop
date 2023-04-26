@@ -1,0 +1,207 @@
+<!--suppress ALL -->
+<html xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org http://www.thymeleaf.org http://www.thymeleaf.org ">
+<body>
+<header th:fragment="header-body">
+    <link rel="stylesheet" href="css/header/cd-dropdown-wrapper/cd-dropdown-wrapper.css">
+    <link rel="stylesheet" href="../css/header/header.css">
+    <a th:href="@{/}" class="menu-logo">
+        <div class="logo">
+            <img src="images/logo.svg" alt="">
+        </div>
+        <span>DNA SHOP</span>
+    </a>
+    <div class="menu">
+        <div class="menu-title">
+            <a class="tab" th:href="@{/}">
+                <i class="fal fa-home-alt" style="color: #1f1f1f;"></i>&nbsp;<span class="title-link home-tab">Trang chủ</span>
+            </a>
+            <a class="tab" th:href="@{/san-pham}">
+                <i class="fal fa-tshirt" style="color: #1f1f1f;"></i>&nbsp;<span class="title-link products-tab">Sản phẩm</span>
+            </a>
+            <a class="tab">
+                <i class="fal fa-books" style="color: #1f1f1f;"></i>&nbsp;<span class="title-link blogs-tab">Chuyện ăn mặc</span>
+            </a>
+            <a class="tab">
+                <i class="fal fa-mask" style="color: #1f1f1f;"></i>&nbsp;<span class="title-link about-tab">Về chúng tôi</span>
+            </a>
+            <a class="tab">
+                <i class="fal fa-mailbox" style="color: #1f1f1f;"></i>&nbsp;<span class="title-link contact-tab">Liên hệ</span>
+            </a>
+        </div>
+    </div>
+    <div class="cd-dropdown-wrapper">
+        <a class="cd-dropdown-trigger" href="#0"><i class="fas fa-bars"></i></a>
+        <nav class="cd-dropdown">
+            <h2>DANH MỤC</h2>
+            <a href="#0" class="cd-close">Close</a>
+            <ul class="cd-dropdown-content">
+                <li>
+                    <form class="cd-search">
+                        <input type="search" placeholder="Tìm kiếm...">
+                    </form>
+                </li>
+                <li>
+                    <a th:href="@{/}">Trang chủ</a>
+                </li>
+                <!-- .has-children -->
+                <li class="has-children">
+                    <a>Sản phẩm</a>
+                    <ul class="cd-secondary-dropdown is-hidden">
+                        <li class="go-back"><a href="#0">Menu Chính</a></li>
+                        <li class="see-all"><a th:href="@{/san-pham}">Tất cả sản phẩm</a></li>
+                        <li>
+                            <a th:href="@{/san-pham/t-shirt}">T-Shirt</a>
+                        </li>
+                        <li class="has-children">
+                            <a href="http://codyhouse.co/?p=748">Bottoms</a>
+                            <ul class="is-hidden">
+                                <li class="go-back"><a href="#0">Clothing</a></li>
+                                <li class="see-all"><a href="http://codyhouse.co/?p=748">All Bottoms</a></li>
+                                <li><a href="http://codyhouse.co/?p=748">Casual Trousers</a></li>
+                                <li class="has-children">
+                                    <a href="#0">Jeans</a>
+                                    <ul class="is-hidden">
+                                        <li class="go-back"><a href="#0">Bottoms</a></li>
+                                        <li class="see-all"><a href="http://codyhouse.co/?p=748">All Jeans</a></li>
+                                        <li><a href="http://codyhouse.co/?p=748">Ripped</a></li>
+                                        <li><a href="http://codyhouse.co/?p=748">Skinny</a></li>
+                                        <li><a href="http://codyhouse.co/?p=748">Slim</a></li>
+                                        <li><a href="http://codyhouse.co/?p=748">Straight</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#0">Leggings</a></li>
+                                <li><a href="#0">Shorts</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-children">
+                            <a href="http://codyhouse.co/?p=748">Jackets</a>
+                            <ul class="is-hidden">
+                                <li class="go-back"><a href="#0">Clothing</a></li>
+                                <li class="see-all"><a href="http://codyhouse.co/?p=748">All Jackets</a></li>
+                                <li><a href="http://codyhouse.co/?p=748">Blazers</a></li>
+                                <li><a href="http://codyhouse.co/?p=748">Bomber jackets</a></li>
+                                <li><a href="http://codyhouse.co/?p=748">Denim Jackets</a></li>
+                                <li><a href="http://codyhouse.co/?p=748">Duffle Coats</a></li>
+                                <li><a href="http://codyhouse.co/?p=748">Leather Jackets</a></li>
+                                <li><a href="http://codyhouse.co/?p=748">Parkas</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-children">
+                            <a href="http://codyhouse.co/?p=748">Tops</a>
+                            <ul class="is-hidden">
+                                <li class="go-back"><a href="#0">Clothing</a></li>
+                                <li class="see-all"><a href="http://codyhouse.co/?p=748">All Tops</a></li>
+                                <li><a href="http://codyhouse.co/?p=748">Cardigans</a></li>
+                                <li><a href="http://codyhouse.co/?p=748">Coats</a></li>
+                                <li><a href="http://codyhouse.co/?p=748">Polo Shirts</a></li>
+                                <li><a href="http://codyhouse.co/?p=748">Shirts</a></li>
+                                <li class="has-children">
+                                    <a href="#0">T-Shirts</a>
+
+                                    <ul class="is-hidden">
+                                        <li class="go-back"><a href="#0">Tops</a></li>
+                                        <li class="see-all"><a href="http://codyhouse.co/?p=748">All T-shirts</a></li>
+                                        <li><a href="http://codyhouse.co/?p=748">Plain</a></li>
+                                        <li><a href="http://codyhouse.co/?p=748">Print</a></li>
+                                        <li><a href="http://codyhouse.co/?p=748">Striped</a></li>
+                                        <li><a href="http://codyhouse.co/?p=748">Long sleeved</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="http://codyhouse.co/?p=748">Vests</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <!-- .cd-secondary-dropdown -->
+                </li>
+                <!-- .has-children -->
+                <li class="has-children">
+                    <a href="http://codyhouse.co/?p=748">Bài viết</a>
+                    <ul class="cd-dropdown-icons is-hidden">
+                        <li class="go-back"><a href="#0">Menu</a></li>
+                        <li class="see-all"><a href="http://codyhouse.co/?p=748">Browse Services</a></li>
+                        <li>
+                            <a class="cd-dropdown-item item-1" href="http://codyhouse.co/?p=748">
+                                <h3>Service #1</h3>
+                                <p>This is the item description</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="cd-dropdown-item item-2" href="http://codyhouse.co/?p=748">
+                                <h3>Service #2</h3>
+                                <p>This is the item description</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="cd-dropdown-item item-3" href="http://codyhouse.co/?p=748">
+                                <h3>Service #3</h3>
+                                <p>This is the item description</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="cd-dropdown-item item-4" href="http://codyhouse.co/?p=748">
+                                <h3>Service #4</h3>
+                                <p>This is the item description</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="cd-dropdown-item item-5" href="http://codyhouse.co/?p=748">
+                                <h3>Service #5</h3>
+                                <p>This is the item description</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="cd-dropdown-item item-6" href="http://codyhouse.co/?p=748">
+                                <h3>Service #6</h3>
+                                <p>This is the item description</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="cd-dropdown-item item-7" href="http://codyhouse.co/?p=748">
+                                <h3>Service #7</h3>
+                                <p>This is the item description</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="cd-dropdown-item item-8" href="http://codyhouse.co/?p=748">
+                                <h3>Service #8</h3>
+                                <p>This is the item description</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="cd-dropdown-item item-9" href="http://codyhouse.co/?p=748">
+                                <h3>Service #9</h3>
+                                <p>This is the item description</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="cd-dropdown-item item-10" href="http://codyhouse.co/?p=748">
+                                <h3>Service #10</h3>
+                                <p>This is the item description</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="cd-dropdown-item item-11" href="http://codyhouse.co/?p=748">
+                                <h3>Service #11</h3>
+                                <p>This is the item description</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="cd-dropdown-item item-12" href="http://codyhouse.co/?p=748">
+                                <h3>Service #12</h3>
+                                <p>This is the item description</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- .cd-dropdown-icons -->
+                </li>
+                <!-- .has-children -->
+                <li><a href="http://codyhouse.co/?p=748">Về chúng tôi</a></li>
+                <li><a href="http://codyhouse.co/?p=748">Liên hệ</a></li>
+            </ul>
+            <!-- .cd-dropdown-content -->
+        </nav>
+    </div>
+</header>
+</body>
+</html>

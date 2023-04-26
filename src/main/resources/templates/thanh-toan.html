@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<th:block th:each="item : ${orderDetail.cart}">
+    <p th:text="${item.product.name}"></p>
+    <p th:text="${#numbers.formatCurrency(item.product.price)}"></p>
+    <p th:text="${item.quantity}"></p>
+</th:block>
+<p th:text="${orderDetail.totalMoney}"></p>
+
+<h1>THÔNG TIN KHÁCH HÀNG</h1>
+<p>Điền thông tin của bạn để chúng tôi có thể tư vấn</p>
+<div>
+    <form th:action="@{/process_customer_information}" method="post" th:object="${information}">
+        <div class="info-fill">
+            <input class="info-input" th:field="*{name}" type="text"
+                   placeholder="Tên của bạn">
+        </div>
+        <div class="info-fill">
+            <input class="info-input" th:field="*{phone}" type="text"
+                   placeholder="Số điện thoại">
+        </div>
+        <div class="info-fill">
+            <input class="info-input" th:field="*{email}" type="text"
+                   placeholder="Email">
+        </div>
+        <div class="info-fill">
+            <input class="info-input" th:field="*{address}" type="text"
+                   placeholder="Địa chỉ">
+        </div>
+        <div class="info-fill">
+            <input class="info-input" th:field="*{note}" type="text"
+                   placeholder="Ghi chú tuỳ chọn">
+        </div>
+        <div class="info-fill">
+            <input class="btn-input" type="submit" value="Lưu">
+        </div>
+    </form>
+</div>
+</body>
+</html>
