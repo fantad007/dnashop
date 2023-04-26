@@ -2,7 +2,6 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '2.7.10'
 	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
-	id 'war'
 }
 
 group = 'com.dna'
@@ -34,11 +33,11 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
-bootWar {
+bootJar {
 	archiveClassifier.set('boot')
 }
 
-war {
+jar {
 	archiveClassifier.set('')
 }
 
