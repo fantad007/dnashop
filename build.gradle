@@ -18,6 +18,12 @@ repositories {
 	mavenCentral()
 }
 
+jar {
+	manifest {
+		from 'MANIFEST.MF'
+	}
+}
+
 dependencies {
 	implementation 'com.github.mxab.thymeleaf.extras:thymeleaf-extras-data-attribute:2.0.1'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
