@@ -16,7 +16,7 @@
 </head>
 <body>
 <div class="container">
-    <div th:replace="/fragments/header :: header-body"></div>
+    <div th:replace="/fragments/header :: header-body" th:remove="tag"></div>
     <main>
         <div th:replace="/fragments/utility-oasis :: utility-oasis-body"></div>
     </main>
