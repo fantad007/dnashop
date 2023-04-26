@@ -25,6 +25,7 @@
   width: 100%;
 }
 .products .list-products .card .price {
+  margin-top: 15px;
   text-align: center;
 }
 .products .list-products .card .price .product-name {
