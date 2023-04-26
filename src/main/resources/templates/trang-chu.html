@@ -16,11 +16,11 @@
 </head>
 <body>
 <div class="container">
-    <div th:replace="/fragments/header :: header-body" th:remove="tag"></div>
+    <div th:replace="fragments/header :: header-body" th:remove="tag"></div>
     <main>
-        <div th:replace="/fragments/utility-oasis :: utility-oasis-body"></div>
+        <div th:replace="fragments/utility-oasis :: utility-oasis-body"></div>
     </main>
-    <div th:replace="/fragments/footer :: footer-body"></div>
+    <div th:replace="fragments/footer :: footer-body"></div>
 </div>
 <script src="js/modernizr.js"></script>
 <script src="js/jquery-2.1.1.js"></script>
