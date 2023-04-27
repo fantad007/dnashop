@@ -84,6 +84,11 @@ header .cd-dropdown-wrapper i {
     display: flex;
   }
 }
+@media screen and (max-width: 329px) {
+  header .menu-logo span {
+    display: none;
+  }
+}
 header a {
   text-decoration: none;
 }

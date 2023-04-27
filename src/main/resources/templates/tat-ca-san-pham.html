@@ -22,27 +22,24 @@
     <main>
 		<div th:replace="fragments/utility-oasis :: utility-oasis-body"></div>
 		<div class="web-content">
+			<div class="banner">
+				<a href=""><img src="images/banner.png" alt=""></a>
+			</div>
 			<div class="products">
-				<div class="banner">
-					<a href=""><img src="images/banner.png" alt=""></a>
-				</div>
 				<div class="title">
 					<h2>TẤT CẢ SẢN PHẨM</h2>
 				</div>
 				<div class="list-products">
 					<th:block th:each="p: ${LIST_PRODUCT}">
-						<div class="card">
+						<a th:href="@{/chi-tiet-san-pham(id=${p.id})}" class="card">
 							<div class="thumbnail">
 								<img th:src="${p.thumbnail}" alt="">
 							</div>
 							<div class="price">
 								<h3 class="product-name" th:text="${p.name}"></h3>
 								<p th:text="${#numbers.formatDecimal(p.price, 0, 'POINT', 0, 'POINT')} + 'đ'"></p>
-								<div>
-									<a th:href="@{/chi-tiet-san-pham(id=${p.id})}">XEM CHI TIẾT</a>
-								</div>
 							</div>
-						</div>
+						</a>
 					</th:block>
 				</div>
 			</div>

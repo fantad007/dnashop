@@ -5,4 +5,6 @@ main .web-content {
   width: 100%;
 }
 
-/*# sourceMappingURL=main.css.map */
+main .web-content .banner a img {
+    width: 100%;
+}

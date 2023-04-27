@@ -87,6 +87,13 @@ header {
             display: flex;
         }
     }
+    @media screen and (max-width: 329px) {
+        .menu-logo {
+            span {
+                display: none;
+            }
+        }
+    }
     a {
         text-decoration: none;
     }

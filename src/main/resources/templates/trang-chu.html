@@ -12,6 +12,9 @@
     <title>DNA - TRANG CHỦ</title>
     <link rel="icon" href="images/logo.svg" type="image/svg+xml">
     <link rel="stylesheet" href="font-awesome-pro-master/css/all.css">
+    <link rel="stylesheet" href="css/main/products/products.css">
+    <link rel="stylesheet" href="css/main/free-ship/free-ship.css">
+    <link rel="stylesheet" href="css/main/main.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -19,6 +22,56 @@
     <div th:replace="fragments/header :: header-body" th:remove="tag"></div>
     <main>
         <div th:replace="fragments/utility-oasis :: utility-oasis-body"></div>
+        <div class="web-content">
+            <div class="banner">
+                <a href=""><img src="images/home-banner.png" alt=""></a>
+            </div>
+            <div class="products">
+                <div class="title">
+                    <h2>SẢN PHẨM BÁN CHẠY</h2>
+                </div>
+                <div class="list-products">
+<!--                    <th:block th:each="p: ${LIST_PRODUCT}">-->
+<!--                        <div class="card">-->
+<!--                            <div class="thumbnail">-->
+<!--                                <img th:src="${p.thumbnail}" alt="">-->
+<!--                            </div>-->
+<!--                            <div class="price">-->
+<!--                                <h3 class="product-name" th:text="${p.name}"></h3>-->
+<!--                                <p th:text="${#numbers.formatDecimal(p.price, 0, 'POINT', 0, 'POINT')} + 'đ'"></p>-->
+<!--                                <div>-->
+<!--                                    <a th:href="@{/chi-tiet-san-pham(id=${p.id})}">XEM CHI TIẾT</a>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </th:block>-->
+                </div>
+            </div>
+            <div class="products">
+                <div class="title">
+                    <h2>SẢN PHẨM MỚI</h2>
+                </div>
+                <div class="list-products">
+                    <!--                    <th:block th:each="p: ${LIST_PRODUCT}">-->
+                    <!--                        <div class="card">-->
+                    <!--                            <div class="thumbnail">-->
+                    <!--                                <img th:src="${p.thumbnail}" alt="">-->
+                    <!--                            </div>-->
+                    <!--                            <div class="price">-->
+                    <!--                                <h3 class="product-name" th:text="${p.name}"></h3>-->
+                    <!--                                <p th:text="${#numbers.formatDecimal(p.price, 0, 'POINT', 0, 'POINT')} + 'đ'"></p>-->
+                    <!--                                <div>-->
+                    <!--                                    <a th:href="@{/chi-tiet-san-pham(id=${p.id})}">XEM CHI TIẾT</a>-->
+                    <!--                                </div>-->
+                    <!--                            </div>-->
+                    <!--                        </div>-->
+                    <!--                    </th:block>-->
+                </div>
+            </div>
+            <div class="free-ship">
+                <p>MIỄN PHÍ VẬN CHUYỂN TOÀN QUỐC VỚI GIÁ TRỊ ĐƠN HÀNG TỪ 800.000đ</p>
+            </div>
+        </div>
     </main>
     <div th:replace="fragments/footer :: footer-body"></div>
 </div>
