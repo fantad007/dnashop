@@ -23,10 +23,8 @@
             <table class="table table-bordered">
                 <thead>
                 <tr>
-                    <th>Id</th>
+                    <th>Ảnh sản phẩm</th>
                     <th>Name</th>
-                    <th>Size</th>
-                    <th>Color</th>
                     <th>Price</th>
                     <th>Quantity</th>
                     <th>Amount</th>
@@ -36,18 +34,18 @@
                 <tbody>
                 <th:block th:each="item: ${CART_ITEMS}">
                     <form th:action="@{/gio-hang/cap-nhat}" method="post">
-                        <input type="hidden" name="id" th:value="${item.color.id}"/>
+                        <input type="hidden" name="id" th:value="${item.product.id}"/>
                         <tr>
-                            <td th:text="${item.product.id}"></td>
+                            <td>
+                                <img th:src="${item.product.cartImage}" style="width: 100px;">
+                            </td>
                             <td th:text="${item.product.name}"></td>
-                            <td th:text="${item.size.size}"></td>
-                            <td th:text="${item.color.name}"></td>
                             <td th:text="${#numbers.formatDecimal(item.product.price, 0, 'POINT', 0, 'POINT')} + 'đ'"></td>
                             <td><input name="quantity" th:value="${item.quantity}"
                                        onblur="this.form.submit()" style="width: 50px;"></td>
                             <td th:text="${#numbers.formatDecimal(item.product.price*item.quantity, 0, 'POINT', 0, 'POINT')} + 'đ'"></td>
                             <td><a class="btn btn-primary btn-sm"
-                                   th:href="@{|/gio-hang/xoa/${item.color.id}|}">XOÁ</a></td>
+                                   th:href="@{|/gio-hang/xoa/${item.product.id}|}">XOÁ</a></td>
                         </tr>
                     </form>
                 </th:block>

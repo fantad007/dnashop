@@ -14,8 +14,6 @@ public class ProductDetailDto {
     private double price;
     private String shortDesc;
     private String fullDesc;
-    private Collection<SizeEntity> sizes;
     private CategoryEntity category;
-    private Collection<ImageRepresentEntity> imageRepresents;
     private Collection<ImageEntity> images;
 }

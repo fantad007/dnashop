@@ -10,5 +10,6 @@ public class CreateProductDto {
     private String productName;
     private double price;
     private String thumbnail;
+    private String cartImage;
     private long categoryId;
 }

@@ -6,6 +6,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class CreateImageDto {
-    private long colorId;
+    private long productId;
     private String imageLink;
 }

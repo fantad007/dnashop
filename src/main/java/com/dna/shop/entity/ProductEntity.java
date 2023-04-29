@@ -19,10 +19,7 @@ public class ProductEntity extends BaseAuditEntity {
     private String shortDesc;
     private String fullDesc;
     private String thumbnail;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
-    @EqualsAndHashCode.Exclude
-    @ToString.Exclude
-    private Collection<SizeEntity> sizes;
+    private String cartImage;
     @ManyToOne
     @JoinColumn(name = "category_id")
     @EqualsAndHashCode.Exclude
@@ -31,5 +28,5 @@ public class ProductEntity extends BaseAuditEntity {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    private Collection<ImageRepresentEntity> imageRepresents;
+    private Collection<ImageEntity> images;
 }

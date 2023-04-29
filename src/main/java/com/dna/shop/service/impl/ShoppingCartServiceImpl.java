@@ -18,9 +18,10 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 
     @Override
     public void add(CartEntity cart) {
-        CartEntity cartItem = map.get(cart.getColor().getId());
+        long productId = cart.getProduct().getId();
+        CartEntity cartItem = map.get(productId);
         if (cartItem == null) {
-            map.put(cart.getColor().getId(), cart);
+            map.put(productId, cart);
         } else {
             cartItem.setQuantity(cartItem.getQuantity() + 1);
         }
@@ -32,8 +33,8 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
     }
 
     @Override
-    public void update(long colorId, int quantity) {
-        CartEntity cartItem = map.get(colorId);
+    public void update(long productId, int quantity) {
+        CartEntity cartItem = map.get(productId);
         cartItem.setQuantity(quantity);
     }
 

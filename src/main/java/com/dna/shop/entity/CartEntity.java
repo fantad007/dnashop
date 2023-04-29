@@ -17,12 +17,6 @@ public class CartEntity extends BaseAuditEntity {
     @OneToOne
     @JoinColumn(name = "product_id")
     private ProductEntity product;
-    @OneToOne
-    @JoinColumn(name = "size_id")
-    private SizeEntity size;
-    @OneToOne
-    @JoinColumn(name = "color_id")
-    private ColorEntity color;
     @ManyToOne
     @JoinColumn(name = "orderDetail_id")
     @EqualsAndHashCode.Exclude

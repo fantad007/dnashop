@@ -9,6 +9,6 @@ import java.util.List;
 
 @Repository
 public interface ImageRepository extends JpaRepository<ImageEntity, Long> {
-    @Query(value = "select * from image i where i.color_id = ?1 limit 5", nativeQuery = true)
-    List<ImageEntity> getImagesByColorId(Long colorId);
+    @Query(value = "select * from image i where i.product_id = ?1", nativeQuery = true)
+    List<ImageEntity> getImagesByProductId(long proId);
 }

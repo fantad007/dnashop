@@ -14,7 +14,7 @@
     width: 30px;
     height: 30px;
     line-height: 40px;
-    color: #ffffff;
+    color: #fff;
     border-radius: 2px;
 }
 
@@ -152,7 +152,7 @@
     /* dropdown title - mobile version only */
     position: relative;
     z-index: 1;
-    color: #1f1f1f;
+    color: #03649F;
     background-color: #ededed;
     border-bottom: 1px solid #fff;
 }
@@ -188,7 +188,7 @@
     transform: translateX(-50%) translateY(-50%);
     height: 20px;
     width: 2px;
-    background-color: #1f1f1f;
+    background-color: #03649F;
 }
 
 .cd-dropdown .cd-close::after {
@@ -291,7 +291,7 @@
 .cd-dropdown-content a,
 .cd-dropdown-content ul a {
     display: block;
-    color: #1f1f1f;
+    color: #03649F;
     /* truncate text with ellipsis if too long */
     overflow: hidden;
     text-overflow: ellipsis;
@@ -446,7 +446,7 @@
 
 .cd-dropdown-content .see-all a {
     /* different style for the See all links */
-    color: #3f8654;
+    color: #03649F;
 }
 
 .cd-dropdown-content .cd-dropdown-gallery .cd-dropdown-item,
@@ -925,14 +925,14 @@
     -o-appearance: none;
     appearance: none;
     background-color: #fff;
-    color: #1f1f1f;
+    color: #03649F;
     border: none;
     border-radius: 0;
 }
 
 .cd-search input[type="search"]::-webkit-input-placeholder {
     font-family: 'Lexend', sans-serif;
-    color: #1f1f1f;
+    color: #03649F;
 }
 
 .cd-search input[type="search"]::-moz-placeholder {
@@ -1004,7 +1004,7 @@
     display: inline-block;
     height: 2px;
     width: 10px;
-    background: #1f1f1f;
+    background: #03649F;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
 }

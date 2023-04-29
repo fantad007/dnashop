@@ -1,25 +1,18 @@
 .products {
   width: 100%;
-  color: #1f1f1f;
-}
-.products .title {
-  text-align: center;
-  padding: 30px;
-}
-.products .title h2 {
-  color: #1F1F1F;
-  font-size: 32px;
+  color: #03649F;
 }
 .products .list-products {
-  width: 100%;
+  margin: 60px auto 0 auto;
+  width: 80%;
   display: grid;
-  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-columns: 33.3333333333% 33.3333333333% 33.3333333333%;
 }
 .products .list-products .card {
   margin-bottom: 60px;
   width: 100%;
   text-decoration: none;
-  color: #1F1F1F;
+  color: #03649F;
 }
 .products .list-products .card .thumbnail {
   width: 100%;
@@ -36,6 +29,7 @@
 }
 @media screen and (max-width: 849px) {
   .products .list-products {
+    width: 100%;
     grid-template-columns: 33.3333333333% 33.3333333333% 33.3333333333%;
   }
 }

@@ -12,6 +12,12 @@
       th:object="${productCreate}"
       method="POST">
   <div>
+    <label for="category">Tên danh mục: </label>
+    <select name="category" id="category" th:field="*{categoryId}">
+      <option th:each="category : ${categories}" th:text="${category.name}" th:value="${category.id}"></option>
+    </select>
+  </div>
+  <div>
     <label for="code">Mã sản phẩm: </label>
     <input id="code" type="text" th:field="*{productCode}" name="code" />
   </div>
@@ -24,14 +30,12 @@
     <input id="price" type="number" th:field="*{price}" name="price" />
   </div>
   <div>
-    <label for="category">Tên danh mục: </label>
-    <select name="category" id="category" th:field="*{categoryId}">
-        <option th:each="category : ${categories}" th:text="${category.name}" th:value="${category.id}"></option>
-    </select>
-  </div>
-  <div>
     <label for="thumbnail">Link thumbnail: </label>
     <input id="thumbnail" type="text" th:field="*{thumbnail}" name="thumbnail" />
+  </div>
+  <div>
+    <label for="cartImage">Link ảnh hiển thị trong giỏ hàng: </label>
+    <input id="cartImage" type="text" th:field="*{cartImage}" name="cartImage" />
   </div>
 <!--  Button Tạo-->
   <div>

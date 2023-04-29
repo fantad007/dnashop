@@ -11,7 +11,7 @@ header .menu-logo {
   display: flex;
   flex-direction: row;
   align-items: center;
-  color: #1f1f1f;
+  color: #03649F;
 }
 header .menu-logo .logo {
   width: 48px;
@@ -42,7 +42,7 @@ header .menu .menu-title .tab {
 }
 header .menu .menu-title .tab span {
   font-size: 16px;
-  color: #1f1f1f;
+  color: #03649F;
 }
 header .menu .menu-title .tab .active {
   font-weight: 700;
@@ -56,7 +56,7 @@ header .cd-dropdown-wrapper {
   justify-content: center;
 }
 header .cd-dropdown-wrapper i {
-  color: #1f1f1f;
+  color: #03649F;
 }
 @media screen and (max-width: 921px) {
   header .menu-title .tab span {

@@ -1,6 +1,6 @@
 package com.dna.shop.controller;
 
-import com.dna.shop.dto.ManageProductDto;
+import com.dna.shop.dto.ManageProductsDto;
 import com.dna.shop.dto.OrderDto;
 import com.dna.shop.service.OrderService;
 import com.dna.shop.service.ProductService;
@@ -26,8 +26,8 @@ public class AdminController {
 
     @GetMapping("/admin/quan-ly-san-pham")
     public String manageProductViews(Model model) {
-        List<ManageProductDto> manageProductDtoList = productService.managesAllProducts();
-        model.addAttribute("manageProductDtos", manageProductDtoList);
+        List<ManageProductsDto> manageProductsDtoList = productService.managesProducts();
+        model.addAttribute("manageProductDtos", manageProductsDtoList);
         return "admin/quan-ly-san-pham";
     }
 }

@@ -1,6 +1,7 @@
 package com.dna.shop.controller;
 
 import com.dna.shop.entity.*;
+import com.dna.shop.entity.ProductEntity;
 import com.dna.shop.service.ProductService;
 import com.dna.shop.service.ShoppingCartService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,22 +26,12 @@ public class ShoppingCartController {
         return "gio-hang";
     }
 
-    @GetMapping("/gio-hang/them/{productId}/{sizeId}/{colorId}")
-    public String addToCart(@PathVariable("productId") Long productId,
-                            @PathVariable("sizeId") Long sizeId,
-                            @PathVariable("colorId") Long colorId) {
+    @GetMapping("/gio-hang/them/{productId}")
+    public String addToCart(@PathVariable("productId") Long productId) {
         ProductEntity productEntity = productService.findProductById(productId);
-        SizeEntity sizeEntity = productService.findSizeById(sizeId);
-        ColorEntity colorEntity = productService.findColorById(colorId);
         CartEntity cart = new CartEntity();
         if (productEntity != null) {
             cart.setProduct(productEntity);
-        }
-        if (sizeEntity != null) {
-            cart.setSize(sizeEntity);
-        }
-        if (colorEntity != null) {
-            cart.setColor(colorEntity);
         }
         cart.setQuantity(1);
         cartService.add(cart);

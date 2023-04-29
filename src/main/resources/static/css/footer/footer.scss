@@ -1,6 +1,6 @@
 footer {
     margin-top: 0px;
-    background-color: #1f1f1f;
+    background-color: #03649F;
     color: #fff;
     a {
         color: #fff;
@@ -67,6 +67,9 @@ footer {
             .footer-logo {
                 .footer-logo-link {
                     display: inline-block;
+                    img {
+                        width: 150px !important;
+                    }
                 }
             }
             .footer-menu {
@@ -117,7 +120,7 @@ footer {
                     margin-bottom: 20px;
                 }
                 .footer-call-to-action-button {
-                    background-color: #4f4f4f;
+                    background-color: #009fff;
                     border-radius: 21px;
                     color: #fffff2;
                     display: inline-block;
@@ -166,7 +169,7 @@ footer {
                 top: 0;
                 width: 236px;
                 .footer-social-amoeba-path {
-                    fill: #4f4f4f;
+                    fill: #009fff;
                 }
             }
             .footer-social-link.linkedin {
@@ -221,7 +224,7 @@ footer {
         }
     }
     .footer-copyright {
-        background-color: #4f4f4f;
+        background-color: #009fff;
         color: #fff;
         padding: 15px 30px;
         text-align: center;

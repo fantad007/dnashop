@@ -17,8 +17,8 @@ import javax.persistence.Table;
 public class ImageEntity extends BaseAuditEntity {
     private String link;
     @ManyToOne
-    @JoinColumn(name = "color_id")
+    @JoinColumn(name = "product_id")
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    private ColorEntity color;
+    private ProductEntity product;
 }

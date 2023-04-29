@@ -8,3 +8,16 @@ main .web-content {
 main .web-content .banner a img {
     width: 100%;
 }
+
+main .web-content .banner a .banner-mobile {
+    display: none;
+}
+
+@media screen and (max-width: 699px) {
+    main .web-content .banner a .banner-desktop {
+        display: none;
+    }
+    main .web-content .banner a .banner-mobile {
+        display: block;
+    }
+}
