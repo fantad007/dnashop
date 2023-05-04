@@ -33,7 +33,7 @@
 					<th:block th:each="p: ${LIST_PRODUCT}">
 						<a th:href="@{/chi-tiet-san-pham(id=${p.id})}" class="card">
 							<div class="thumbnail">
-								<img th:src="${p.thumbnail}" alt="">
+								<img th:src="|https://res.cloudinary.com/dkylojnfz/image/upload/v1683002896/dnahealth/products/${p.category.categoryCode}/${p.productCode}/thumbnail/thumbnail.png|" alt="">
 							</div>
 							<div class="price">
 								<h3 class="product-name" th:text="${p.name}"></h3>

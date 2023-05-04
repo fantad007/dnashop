@@ -17,6 +17,7 @@ import java.util.Collection;
 @Table(name = "category")
 public class CategoryEntity extends BaseAuditEntity {
     private String name;
+    private String categoryCode;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
