@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <title>DNAHEALTH - ĐĂNG KÝ</title>
+  <link rel="stylesheet" href="font-awesome-pro-master/css/all.css">
+  <link rel="icon" href="https://res.cloudinary.com/dkylojnfz/image/upload/v1682956051/dnahealth/logo/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/main/register-form/register-form.css">
+  <link rel="stylesheet" href="css/main/main.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div id="wrapper">
+  <main id="main">
+    <div class="register-form">
+      <div class="form-title">
+        <p th:if="${hasError}" class="error" style="margin: 10px 0 0; color: red" th:text="${messageError}"></p>
+        <h1>Đăng ký</h1>
+        <p>Đăng ký tài khoản và bắt đầu quản lý hệ thống của bạn</p>
+      </div>
+      <form th:action="@{/process_register}" method="post" th:object="${adminRegister}">
+        <div>
+          <input class="info-input" id="employee-name" type="text" th:field="*{adminName}" placeholder="Họ và tên">
+        </div>
+        <div>
+          <input class="info-input" id="employee-email" type="email" th:field="*{email}" placeholder="Email">
+        </div>
+        <div>
+          <input class="info-input" id="employee-password" type="password" th:field="*{encryptedPassword}" placeholder="Mật khẩu">
+        </div>
+        <div>
+          <input class="btn-input" th:type="submit" value="Đăng ký">
+        </div>
+      </form>
+      <div class="bottom-img">
+        <img class="vector-img" src="images/vectors-light.svg" alt="">
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

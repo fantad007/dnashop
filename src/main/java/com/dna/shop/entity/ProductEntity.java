@@ -4,7 +4,6 @@ import com.dna.shop.entity.base.BaseAuditEntity;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 @Getter
 @Setter
@@ -25,8 +24,4 @@ public class ProductEntity extends BaseAuditEntity {
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     private CategoryEntity category;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
-    @EqualsAndHashCode.Exclude
-    @ToString.Exclude
-    private Collection<ImageEntity> images;
 }

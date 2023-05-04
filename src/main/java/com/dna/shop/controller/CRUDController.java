@@ -2,7 +2,6 @@ package com.dna.shop.controller;
 
 import com.dna.shop.dto.*;
 import com.dna.shop.service.CategoryService;
-import com.dna.shop.service.ImageService;
 import com.dna.shop.service.ProductService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 public class CRUDController {
     private final CategoryService categoryService;
     private final ProductService productService;
-    private final ImageService imageService;
 
     //Controller Tạo mới Category
     @GetMapping(value = "/admin/tao-danh-muc")
@@ -42,23 +40,6 @@ public class CRUDController {
     public String processCreateProduct(Model model,
                                        @ModelAttribute("productCreate") CreateProductDto createProductDto) {
         productService.createProduct(createProductDto);
-        return "redirect:/san-pham";
-    }
-
-    //Controller Tạo mới Image
-    @GetMapping(value = "/admin/tao-hinh-anh/{productId}")
-    public String createImagePage(Model model,
-                                  @PathVariable("productId") Long productId) {
-        CreateImageDto imageDto = new CreateImageDto();
-        imageDto.setProductId(productId);
-        model.addAttribute("imageCreate", imageDto);
-        return "admin/tao-hinh-anh";
-    }
-
-    @PostMapping(value = "/admin/process_create_image")
-    public String processCreateImage(Model model,
-                                     @ModelAttribute("imageCreate") CreateImageDto createImageDto) {
-        imageService.createImageForProduct(createImageDto);
         return "redirect:/san-pham";
     }
 }

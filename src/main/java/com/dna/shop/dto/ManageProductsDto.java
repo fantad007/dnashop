@@ -13,5 +13,4 @@ public class ManageProductsDto {
     private String productCode;
     private String productName;
     private double price;
-    private List<String> imageLinks;
 }

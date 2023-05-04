@@ -10,10 +10,10 @@ import java.util.Collection;
 @Setter
 public class ProductDetailDto {
     private Long id;
+    private String productCode;
     private String productName;
     private double price;
     private String shortDesc;
     private String fullDesc;
     private CategoryEntity category;
-    private Collection<ImageEntity> images;
 }

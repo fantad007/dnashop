@@ -5,7 +5,6 @@ import com.dna.shop.entity.*;
 import com.dna.shop.entity.ProductEntity;
 import com.dna.shop.repository.*;
 import com.dna.shop.service.CategoryService;
-import com.dna.shop.service.ImageService;
 import com.dna.shop.service.ProductService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -18,7 +17,6 @@ import java.util.List;
 public class ProductServiceImpl implements ProductService {
     private final ProductRepository productRepository;
     private final CategoryService categoryService;
-    private final ImageService imageService;
 
     @Override
     public void createProduct(CreateProductDto createProductDto) {
@@ -63,6 +61,7 @@ public class ProductServiceImpl implements ProductService {
             ProductEntity product = findProductById(productId);
             if (product != null) {
                 productDetailDto.setId(product.getId());
+                productDetailDto.setProductCode(product.getProductCode());
                 productDetailDto.setProductName(product.getName());
                 productDetailDto.setPrice(product.getPrice());
                 productDetailDto.setShortDesc(product.getShortDesc());
@@ -71,8 +70,6 @@ public class ProductServiceImpl implements ProductService {
                 if (category != null) {
                     productDetailDto.setCategory(category);
                 }
-                List<ImageEntity> images = imageService.findByProductId(productId);
-                productDetailDto.setImages(images);
                 return productDetailDto;
             } else {
                 return null;
@@ -94,15 +91,6 @@ public class ProductServiceImpl implements ProductService {
                 manageProductsDto.setProductCode(product.getProductCode());
                 manageProductsDto.setProductName(product.getName());
                 manageProductsDto.setPrice(product.getPrice());
-                List<String> imageLinks = new ArrayList<>();
-                List<ImageEntity> images = (List<ImageEntity>) product.getImages();
-                if (!images.isEmpty()) {
-                    for (ImageEntity image : images) {
-                        String link = image.getLink();
-                        imageLinks.add(link);
-                    }
-                }
-                manageProductsDto.setImageLinks(imageLinks);
                 manageProductsDtoList.add(manageProductsDto);
             }
         }

@@ -15,4 +15,9 @@ public interface AdminRepository extends JpaRepository<AdminEntity, Long> {
 
     @Query(value = "select a.role from admin a where a.id = ?1", nativeQuery = true)
     String getRoleNameById(Long id);
+
+    @Query(value = "select * from admin a where a.verification_code = ?1", nativeQuery = true)
+    AdminEntity findByVerificationCode(String code);
+
+    AdminEntity findByResetPasswordToken(String token);
 }

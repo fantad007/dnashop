@@ -34,7 +34,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().and().formLogin()
                 .loginProcessingUrl("/form_login")
                 .loginPage("/dang-nhap")
-                .defaultSuccessUrl("/admin")
+                .defaultSuccessUrl("/admin/dashboard")
                 .failureUrl("/dang-nhap-that-bai")
                 .usernameParameter("username")
                 .passwordParameter("password")
