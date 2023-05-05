@@ -17,8 +17,6 @@ public class ProductEntity extends BaseAuditEntity {
     private double price;
     private String shortDesc;
     private String fullDesc;
-    private String thumbnail;
-    private String cartImage;
     @ManyToOne
     @JoinColumn(name = "category_id")
     @EqualsAndHashCode.Exclude
