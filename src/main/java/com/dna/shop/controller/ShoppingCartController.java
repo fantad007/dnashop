@@ -21,6 +21,7 @@ public class ShoppingCartController {
 
     @GetMapping(value = {"/gio-hang"})
     public String viewCarts(Model model) {
+        model.addAttribute("TOTAL_QUANTITIES", cartService.getTotalQuantities());
         model.addAttribute("CART_ITEMS", cartService.getAllCartItems());
         model.addAttribute("TOTAL", cartService.getAmount());
         return "gio-hang";

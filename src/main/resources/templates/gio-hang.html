@@ -31,7 +31,7 @@
                     </div>
                     <div class="order-info">
                         <div class="list-orders-title">
-                            <p>DANH SÁCH MUA SẮM <span>(1)</span></p>
+                            <p>DANH SÁCH MUA SẮM <span th:text="'(' + ${TOTAL_QUANTITIES} + ')'"></span></p>
                         </div>
                         <div class="order-detail">
                             <th:block th:each="item: ${CART_ITEMS}">
