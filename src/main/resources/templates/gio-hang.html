@@ -36,23 +36,30 @@
                         <div class="order-detail">
                             <th:block th:each="item: ${CART_ITEMS}">
                                 <form th:action="@{/gio-hang/cap-nhat}" method="post">
+                                    <input type="hidden" name="id" th:value="${item.product.id}"/>
                                     <div class="detail-info">
                                         <div class="cart-image">
-                                            <img src="images/t-shirt/DNA001/shirt-1.jpg" alt="">
+                                            <img src="images/t-shirt/DNA001/without-model/shirt-1.jpg" alt="">
                                         </div>
                                         <div class="product-info">
-                                            <p th:text="${item.product.name}"></p>
-                                            <p><strong>DANH MỤC:</strong> <span th:text="${item.product.category.name}"></span></p>
-                                            <p>
-                                                <strong>SỐ LƯỢNG:</strong>
-                                                <input name="quantity" th:value="${item.quantity}" onblur="this.form.submit()"
-                                                       style="width: 30px;">
-                                            </p>
-                                            <p><strong>ĐƠN GIÁ:</strong> <span th:text="${#numbers.formatDecimal(item.product.price, 0, 'POINT', 0, 'POINT')} + 'đ'"></span></p>
-                                            <a th:href="@{|/gio-hang/xoa/${item.product.id}|}">XOÁ</a>
+                                            <p class="product-name" th:text="${item.product.name}"></p>
+                                            <div class="other-info">
+                                                <p><strong>DANH MỤC:</strong> <span
+                                                        th:text="${item.product.category.name}"></span></p>
+                                                <p>
+                                                    <strong>SỐ LƯỢNG:</strong>
+                                                    <input name="quantity" th:value="${item.quantity}"
+                                                           onblur="this.form.submit()"
+                                                           style="width: 30px;">
+                                                </p>
+                                                <p><strong>ĐƠN GIÁ:</strong> <span
+                                                        th:text="${#numbers.formatDecimal(item.product.price, 0, 'POINT', 0, 'POINT')} + 'đ'"></span>
+                                                </p>
+                                            </div>
                                         </div>
                                         <div class="price">
                                             <p th:text="${#numbers.formatDecimal(item.product.price*item.quantity, 0, 'POINT', 0, 'POINT')} + 'đ'"></p>
+                                            <a th:href="@{|/gio-hang/xoa/${item.product.id}|}">XOÁ</a>
                                         </div>
                                     </div>
                                 </form>
@@ -60,9 +67,8 @@
                         </div>
                     </div>
                     <div class="continue-shopping">
-                        <a th:href="@{/gio-hang/lam-moi}">LÀM SẠCH GIỎ HÀNG</a>
-                        <br>
                         <a th:href="@{/san-pham}">TIẾP TỤC MUA SẮM</a>
+                        <a th:href="@{/gio-hang/lam-moi}">LÀM SẠCH GIỎ HÀNG</a>
                     </div>
                 </div>
                 <div class="summary-bill">

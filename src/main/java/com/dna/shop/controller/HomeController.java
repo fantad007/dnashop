@@ -11,7 +11,7 @@ public class HomeController {
     @Autowired
     ShoppingCartService cartService;
 
-    @GetMapping("/")
+    @GetMapping(value = {"/", "/trang-chu"})
     public String homeView(Model model) {
         model.addAttribute("TOTAL_QUANTITIES", cartService.getTotalQuantities());
         return "trang-chu";

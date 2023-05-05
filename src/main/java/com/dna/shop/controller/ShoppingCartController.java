@@ -19,7 +19,7 @@ public class ShoppingCartController {
     @Autowired
     ShoppingCartService cartService;
 
-    @GetMapping("/gio-hang")
+    @GetMapping(value = {"/gio-hang"})
     public String viewCarts(Model model) {
         model.addAttribute("CART_ITEMS", cartService.getAllCartItems());
         model.addAttribute("TOTAL", cartService.getAmount());
