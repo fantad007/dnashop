@@ -1,0 +1,75 @@
+.utility-oasis {
+          width: 100%;
+          height: 48px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          background-color: #03649F;
+          position: relative;
+        }
+        .utility-oasis a {
+          text-decoration: none;
+          position: relative;
+        }
+        .utility-oasis i {
+          color: #fff;
+          margin: 0 10px;
+        }
+        .bag-full {
+          width: 15px;
+          height: 15px;
+          background-color: #fff;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: absolute;
+          font-size: 13px;
+          color: #03649F;
+          font-weight: 700;
+          border-radius: 100%;
+          top: 0;
+          right: 0;
+        }
+        .utility-oasis .search-container {
+          position: absolute;
+          right: 0;
+          margin-right: 73px;
+        }
+        .utility-oasis .search-container .search {
+          position: relative;
+        }
+        .utility-oasis .search-container .search input {
+          color: #fff;
+          font-weight: 700;
+          font-family: 'Lexend', sans-serif;
+          background-color: transparent;
+          border: 1px solid #fff;
+          padding: 5px 10px;
+          border-radius: 5px;
+          font-size: 14px;
+        }
+        .utility-oasis .search-container .search input::placeholder {
+          color: #fff;
+          font-weight: 700;
+          font-family: 'Lexend', sans-serif;
+        }
+        .utility-oasis .search-container .search i {
+          position: absolute;
+          right: 0;
+          bottom: 7px;
+        }
+        @media screen and (max-width: 699px) {
+          .utility-oasis {
+            justify-content: space-around;
+          }
+          .utility-oasis .search-container {
+            position: unset;
+            margin-right: 0;
+          }
+        }
+        @media screen and (max-width: 559px) {
+          .utility-oasis .search-container {
+            display: none;
+          }
+        }
