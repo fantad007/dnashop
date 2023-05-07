@@ -26,9 +26,7 @@
         <div th:replace="fragments/utility-oasis :: utility-oasis-body"></div>
         <div class="web-content">
             <div class="banner">
-                <a href=""><img
-                        src="https://res.cloudinary.com/dkylojnfz/image/upload/v1683357306/dnahealth/banner/home_banner.svg"
-                        alt=""></a>
+                <a href=""><img src="images/banner/home-banner.svg" alt="ẢNH BANNER TRANG CHỦ"></a>
             </div>
             <div class="support-info">
                 <div class="top-info">
@@ -87,7 +85,8 @@
                     <th:block th:each="p: ${LIST_PRODUCT}">
                         <div class="card">
                             <div class="thumbnail">
-                                <img src="images/t-shirt/DNA001/without-model/shirt-2.jpg" alt="">
+                                <img th:src="|images/${p.category.categoryCode}/${p.productCode}/thumbnail/thumbnail.jpg|"
+                                     alt="THUMBNAIL SẢN PHẨM">
                             </div>
                             <div class="price">
                                 <h3 class="product-name" th:text="${p.name}"></h3>
@@ -120,6 +119,8 @@
     $( document ).ready(function() {
         $('.home-tab').addClass('active');
     });
+
+
 
 
 </script>

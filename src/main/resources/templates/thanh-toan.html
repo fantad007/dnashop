@@ -9,12 +9,12 @@
     <title>Title</title>
 </head>
 <body>
-<th:block th:each="item : ${orderDetail.cart}">
+<th:block th:each="item : ${orderEntity.cart}">
     <p th:text="${item.product.name}"></p>
     <p th:text="${#numbers.formatCurrency(item.product.price)}"></p>
     <p th:text="${item.quantity}"></p>
 </th:block>
-<p th:text="${orderDetail.totalMoney}"></p>
+<p th:text="${orderEntity.totalMoney}"></p>
 
 <h1>THÔNG TIN KHÁCH HÀNG</h1>
 <p>Điền thông tin của bạn để chúng tôi có thể tư vấn</p>

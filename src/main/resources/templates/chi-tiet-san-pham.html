@@ -60,16 +60,16 @@
                     <div class="product-imgs">
                         <div class="img-display">
                             <div class="img-showcase">
-                                <th:block th:each="i: ${#numbers.sequence(0, 4)}">
-                                    <img th:src="|https://res.cloudinary.com/dkylojnfz/image/upload/v1683002896/dnahealth/products/${productDetail.category.categoryCode}/${productDetail.productCode}/thumbnail/thumbnail.png|" alt="">
+                                <th:block th:each="i: ${#numbers.sequence(1, 5)}">
+                                    <img th:src="|images/${productDetail.category.categoryCode}/${productDetail.productCode}/slide-card/img-${i}.png|" alt="">
                                 </th:block>
                             </div>
                         </div>
                         <div class="img-select">
-                            <th:block th:each="i: ${#numbers.sequence(0, 4)}">
+                            <th:block th:each="i: ${#numbers.sequence(1, 5)}">
                                 <div class="img-item">
-                                    <a href="#" th:attr="data-id=${i+1}">
-                                        <img th:src="|https://res.cloudinary.com/dkylojnfz/image/upload/v1683002896/dnahealth/products/${productDetail.category.categoryCode}/${productDetail.productCode}/thumbnail/thumbnail.png|" alt="">
+                                    <a href="#" th:attr="data-id=${i}">
+                                        <img th:src="|images/${productDetail.category.categoryCode}/${productDetail.productCode}/slide-card/img-${i}.png|" alt="">
                                     </a>
                                 </div>
                             </th:block>

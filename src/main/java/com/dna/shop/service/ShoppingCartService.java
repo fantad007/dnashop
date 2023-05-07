@@ -1,18 +1,20 @@
 package com.dna.shop.service;
 
-import com.dna.shop.entity.CartEntity;
-import com.dna.shop.entity.OrderDetail;
+import com.dna.shop.entity.OrderDetailEntity;
+import com.dna.shop.entity.Customer;
+import com.dna.shop.entity.OrderEntity;
 
 import java.util.Collection;
 
 public interface ShoppingCartService {
-    void add(CartEntity cart);
+    void add(OrderDetailEntity cart);
     void remove(long id);
     void update(long colorId, int quantity);
     void clear();
-    Collection<CartEntity> getAllCartItems();
+    Collection<OrderDetailEntity> getAllCartItems();
     int getCount();
     double getAmount();
-    OrderDetail getOrderDetail();
+    OrderEntity getOrderDetail();
     int getTotalQuantities();
+    boolean saveCart(Customer information);
 }

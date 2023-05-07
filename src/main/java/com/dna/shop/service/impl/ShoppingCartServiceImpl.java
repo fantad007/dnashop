@@ -1,11 +1,18 @@
 package com.dna.shop.service.impl;
 
-import com.dna.shop.entity.CartEntity;
-import com.dna.shop.entity.OrderDetail;
+import com.dna.shop.code.OrderCodes;
+import com.dna.shop.entity.OrderDetailEntity;
+import com.dna.shop.entity.Customer;
+import com.dna.shop.entity.OrderEntity;
+import com.dna.shop.repository.CustomerRepository;
+import com.dna.shop.repository.OrderDetailRepository;
+import com.dna.shop.repository.OrderRepository;
 import com.dna.shop.service.ShoppingCartService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.annotation.SessionScope;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -13,13 +20,19 @@ import java.util.Map;
 @SessionScope
 @Service
 public class ShoppingCartServiceImpl implements ShoppingCartService {
-    Map<Long, CartEntity> map = new HashMap<>();
-    OrderDetail orderDetail = new OrderDetail();
+    @Autowired
+    CustomerRepository customerRepository;
+    @Autowired
+    OrderRepository orderRepository;
+    @Autowired
+    OrderDetailRepository orderDetailRepository;
+    Map<Long, OrderDetailEntity> map = new HashMap<>();
+    OrderEntity orderEntity = new OrderEntity();
 
     @Override
-    public void add(CartEntity cart) {
+    public void add(OrderDetailEntity cart) {
         long productId = cart.getProduct().getId();
-        CartEntity cartItem = map.get(productId);
+        OrderDetailEntity cartItem = map.get(productId);
         if (cartItem == null) {
             map.put(productId, cart);
         } else {
@@ -34,7 +47,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 
     @Override
     public void update(long productId, int quantity) {
-        CartEntity cartItem = map.get(productId);
+        OrderDetailEntity cartItem = map.get(productId);
         cartItem.setQuantity(quantity);
     }
 
@@ -44,7 +57,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
     }
 
     @Override
-    public Collection<CartEntity> getAllCartItems() {
+    public Collection<OrderDetailEntity> getAllCartItems() {
         return map.values();
     }
 
@@ -61,19 +74,41 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
     }
 
     @Override
-    public OrderDetail getOrderDetail() {
-        orderDetail.setCart(getAllCartItems());
-        orderDetail.setTotalMoney(getAmount());
-        return orderDetail;
+    public OrderEntity getOrderDetail() {
+        orderEntity.setOrderDetails(getAllCartItems());
+        orderEntity.setTotalMoney(getAmount());
+        return orderEntity;
     }
 
     @Override
     public int getTotalQuantities() {
         int totalQuantities = 0;
-        Collection<CartEntity> listCart = getAllCartItems();
-        for (CartEntity cart : listCart) {
+        Collection<OrderDetailEntity> listCart = getAllCartItems();
+        for (OrderDetailEntity cart : listCart) {
             totalQuantities += cart.getQuantity();
         }
         return totalQuantities;
+    }
+
+    @Override
+    public boolean saveCart(Customer information) {
+        try {
+            OrderEntity orderEntity = getOrderDetail();
+            Collection<OrderEntity> orderEntities = new ArrayList<>();
+            orderEntities.add(orderEntity);
+            information.setOrderEntities(orderEntities);
+            customerRepository.save(information);
+            orderEntity.setCustomer(information);
+            orderEntity.setStatus(OrderCodes.StatusFlag.STAGE_ONE.getCode());
+            orderRepository.save(orderEntity);
+            for (OrderDetailEntity orderDetail : orderEntity.getOrderDetails()) {
+                orderDetail.setOrder(orderEntity);
+                orderDetailRepository.save(orderDetail);
+            }
+            clear();
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 }

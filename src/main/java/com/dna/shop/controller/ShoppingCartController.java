@@ -30,7 +30,7 @@ public class ShoppingCartController {
     @GetMapping("/gio-hang/them/{productId}")
     public String addToCart(@PathVariable("productId") Long productId) {
         ProductEntity productEntity = productService.findProductById(productId);
-        CartEntity cart = new CartEntity();
+        OrderDetailEntity cart = new OrderDetailEntity();
         if (productEntity != null) {
             cart.setProduct(productEntity);
         }

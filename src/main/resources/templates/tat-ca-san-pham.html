@@ -24,8 +24,8 @@
 		<div class="web-content">
 			<div class="banner">
 				<a href="">
-					<img class="banner-desktop" src="https://res.cloudinary.com/dkylojnfz/image/upload/v1682957162/dnahealth/banner/banner_desktop.svg" alt="">
-					<img class="banner-mobile" src="https://res.cloudinary.com/dkylojnfz/image/upload/v1682957284/dnahealth/banner/banner_mobile.svg" alt="">
+					<img class="banner-desktop" src="images/banner/banner-desktop.svg" alt="">
+					<img class="banner-mobile" src="images/banner/banner-mobile.svg" alt="">
 				</a>
 			</div>
 			<div class="products">
@@ -33,7 +33,7 @@
 					<th:block th:each="p: ${LIST_PRODUCT}">
 						<a th:href="@{/chi-tiet-san-pham(id=${p.id})}" class="card">
 							<div class="thumbnail">
-								<img th:src="|https://res.cloudinary.com/dkylojnfz/image/upload/v1683002896/dnahealth/products/${p.category.categoryCode}/${p.productCode}/thumbnail/thumbnail.png|" alt="">
+								<img th:src="|images/${p.category.categoryCode}/${p.productCode}/thumbnail/thumbnail.jpg|" alt="THUMBNAIL SẢN PHẨM">
 							</div>
 							<div class="price">
 								<h3 class="product-name" th:text="${p.name}"></h3>

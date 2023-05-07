@@ -23,6 +23,7 @@ public class CategoryServiceImpl implements CategoryService {
     public void createCategory(CreateCategoryDto createCategoryDto) {
         CategoryEntity categoryEntity = new CategoryEntity();
         categoryEntity.setName(createCategoryDto.getCategory());
+        categoryEntity.setCategoryCode(createCategoryDto.getCategoryCode());
         categoryRepository.save(categoryEntity);
     }
 
