@@ -37,7 +37,7 @@
 }
 
 .support-info .bottom-info {
-    width: 900px;
+    width: 1200px;
     margin: 0 auto;
     background-color: #fff;
     padding: 60px;
@@ -52,7 +52,7 @@
 }
 
 .support-info .bottom-info div h2 {
-    font-size: 32px;
+    font-size: 56px;
     color: #03649F;
 }
 
@@ -61,6 +61,19 @@
     font-weight: 300;
     text-align: justify;
     line-height: 1.5;
+}
+
+@media screen and (max-width: 1199px) {
+    .support-info .bottom-info {
+        width: 1000px;
+    }
+}
+
+@media screen and (max-width: 999px) {
+    .support-info .bottom-info {
+        padding: 30px;
+        width: 900px;
+    }
 }
 
 @media screen and (max-width: 975px) {
@@ -96,7 +109,6 @@
 @media screen and (max-width: 799px) {
     .support-info .bottom-info {
         width: 100%;
-        padding: 30px;
         flex-direction: column;
     }
 }

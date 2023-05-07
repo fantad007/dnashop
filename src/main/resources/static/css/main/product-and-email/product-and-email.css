@@ -1,0 +1,85 @@
+.products-and-email {
+    width: 100%;
+    background-color: #fbfbfb;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.products-and-email .email-register {
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #1F1F1F
+}
+
+.products-and-email .product-picture {
+    width: 100%;
+    font-size: 0;
+    line-height: 0;
+}
+
+.products-and-email .product-picture img {
+    width: 100%;
+    /* border-radius: 5px; */
+}
+
+.products-and-email .email-register h1 {
+    font-size: 56px;
+}
+
+.products-and-email .email-register h2 {
+    margin-bottom: 20px;
+    font-weight: 300;
+}
+
+.products-and-email .email-register p {
+    font-weight: 100;
+    font-style: italic;
+}
+
+.products-and-email .email-register form {
+    margin: 20px 0;
+}
+
+.products-and-email .email-register form input:first-child {
+    width: 200px;
+    padding: 10px;
+    border: 0;
+    border-radius: 3px 0 0 3px;
+    background-color: #FFF;
+    font-size: 14px;
+    color: #1F1F1F;
+}
+
+.products-and-email .email-register form input::placeholder {
+    font-family: 'Lexend', sans-serif;
+    font-weight: 500;
+    color: #1F1F1F;
+}
+
+.products-and-email .email-register form input:last-child {
+    padding: 10px;
+    background-color: #e14d2a;
+    border: 0;
+    border-radius: 0 3px 3px 0;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.products-and-email .email-register form input:last-child:hover {
+    transition: .6s;
+    background-color: #e14c2ac3;
+}
+
+@media screen and (max-width: 893px) {
+    .products-and-email {
+        grid-template-columns: 100%;
+    }
+    .products-and-email .email-register {
+        align-items: center;
+        padding: 30px;
+    }
+}

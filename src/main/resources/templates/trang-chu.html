@@ -10,11 +10,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <title>DNAHEALTH - TRANG CHỦ</title>
-    <link rel="icon" href="https://res.cloudinary.com/dkylojnfz/image/upload/v1682956051/dnahealth/logo/logo.svg" type="image/svg+xml">
+    <link rel="icon" href="https://res.cloudinary.com/dkylojnfz/image/upload/v1682956051/dnahealth/logo/logo.svg"
+          type="image/svg+xml">
     <link rel="stylesheet" href="font-awesome-pro-master/css/all.css">
     <link rel="stylesheet" href="css/main/support-info/support-info.css">
     <link rel="stylesheet" href="css/main/products/products.css">
-    <link rel="stylesheet" href="css/main/free-ship/free-ship.css">
+    <link rel="stylesheet" href="css/main/product-and-email/product-and-email.css">
     <link rel="stylesheet" href="css/main/main.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -25,7 +26,9 @@
         <div th:replace="fragments/utility-oasis :: utility-oasis-body"></div>
         <div class="web-content">
             <div class="banner">
-                <a href=""><img src="https://res.cloudinary.com/dkylojnfz/image/upload/v1683357306/dnahealth/banner/home_banner.svg" alt=""></a>
+                <a href=""><img
+                        src="https://res.cloudinary.com/dkylojnfz/image/upload/v1683357306/dnahealth/banner/home_banner.svg"
+                        alt=""></a>
             </div>
             <div class="support-info">
                 <div class="top-info">
@@ -53,55 +56,59 @@
                         <h2>DNAHEALTH</h2>
                     </div>
                     <div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat.
+                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                            mollit anim id est laborum.</p>
                     </div>
                 </div>
             </div>
-            <div class="products">
-                <div class="title">
-                    <h2>SẢN PHẨM BÁN CHẠY</h2>
+            <div class="products-and-email">
+                <div class="product-picture">
+                    <img src="https://res.cloudinary.com/dkylojnfz/image/upload/v1683429710/dnahealth/product_email.svg"
+                         alt="">
                 </div>
-                <div class="list-products">
-<!--                    <th:block th:each="p: ${LIST_PRODUCT}">-->
-<!--                        <div class="card">-->
-<!--                            <div class="thumbnail">-->
-<!--                                <img th:src="${p.thumbnail}" alt="">-->
-<!--                            </div>-->
-<!--                            <div class="price">-->
-<!--                                <h3 class="product-name" th:text="${p.name}"></h3>-->
-<!--                                <p th:text="${#numbers.formatDecimal(p.price, 0, 'POINT', 0, 'POINT')} + 'đ'"></p>-->
-<!--                                <div>-->
-<!--                                    <a th:href="@{/chi-tiet-san-pham(id=${p.id})}">XEM CHI TIẾT</a>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </th:block>-->
+                <div class="email-register">
+                    <h1>NHẬN VOUCHER</h1>
+                    <h2>Đăng Ký Email</h2>
+                    <p>Bằng cách để lại địa chỉ Email của mình, bạn sẽ luôn nhận được những thông tin chính xác và mới
+                        nhất về các khuyến mãi từ DNAHealth</p>
+                    <form action="" method="post">
+                        <input type="text" placeholder="Nhập email của bạn">
+                        <input type="submit" value="ĐĂNG KÝ">
+                    </form>
                 </div>
             </div>
             <div class="products">
                 <div class="title">
-                    <h2>SẢN PHẨM MỚI</h2>
+                    <h2>SẢN PHẨM NỔI BẬT</h2>
                 </div>
                 <div class="list-products">
-                    <!--                    <th:block th:each="p: ${LIST_PRODUCT}">-->
-                    <!--                        <div class="card">-->
-                    <!--                            <div class="thumbnail">-->
-                    <!--                                <img th:src="${p.thumbnail}" alt="">-->
-                    <!--                            </div>-->
-                    <!--                            <div class="price">-->
-                    <!--                                <h3 class="product-name" th:text="${p.name}"></h3>-->
-                    <!--                                <p th:text="${#numbers.formatDecimal(p.price, 0, 'POINT', 0, 'POINT')} + 'đ'"></p>-->
-                    <!--                                <div>-->
-                    <!--                                    <a th:href="@{/chi-tiet-san-pham(id=${p.id})}">XEM CHI TIẾT</a>-->
-                    <!--                                </div>-->
-                    <!--                            </div>-->
-                    <!--                        </div>-->
-                    <!--                    </th:block>-->
+                    <th:block th:each="p: ${LIST_PRODUCT}">
+                        <div class="card">
+                            <div class="thumbnail">
+                                <img src="images/t-shirt/DNA001/without-model/shirt-2.jpg" alt="">
+                            </div>
+                            <div class="price">
+                                <h3 class="product-name" th:text="${p.name}"></h3>
+                                <p th:text="${#numbers.formatDecimal(p.price, 0, 'POINT', 0, 'POINT')} + 'đ'"></p>
+                                <div>
+                                    <a th:href="@{/chi-tiet-san-pham(id=${p.id})}">XEM CHI TIẾT</a>
+                                </div>
+                            </div>
+                        </div>
+                    </th:block>
                 </div>
             </div>
-            <div class="free-ship">
-                <p>MIỄN PHÍ VẬN CHUYỂN TOÀN QUỐC VỚI GIÁ TRỊ ĐƠN HÀNG TỪ 800.000đ</p>
+            <div class="products">
+                <div class="title">
+                    <h2>CHUYỆN SỨC KHOẺ</h2>
+                </div>
+                <p style="text-align: center; font-size: 48px;
+                          font-weight: 900; color: #fafafa;
+                          padding: 30px 30px 120px 30px;">CHƯA CÓ BÀI VIẾT NÀO ĐỂ HIỂN THỊ</p>
             </div>
         </div>
     </main>
@@ -115,6 +122,7 @@
     $( document ).ready(function() {
         $('.home-tab').addClass('active');
     });
+
 </script>
 </body>
 </html>
