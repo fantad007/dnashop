@@ -29,7 +29,7 @@ public class ProductController {
         String title = "DNA - 404";
         ProductDetailDto productDetailDto = productService.getProductDetailDto(id);
         if (productDetailDto != null) {
-            title = "DNA - " + productDetailDto.getProductName();
+            title = "DNAHEALTH - " + productDetailDto.getProductName();
             model.addAttribute("title", title);
             model.addAttribute("TOTAL_QUANTITIES", cartService.getTotalQuantities());
             model.addAttribute("productDetail", productDetailDto);

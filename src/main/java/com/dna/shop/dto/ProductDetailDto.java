@@ -12,6 +12,7 @@ public class ProductDetailDto {
     private Long id;
     private String productCode;
     private String productName;
+    private String trademark;
     private double price;
     private String shortDesc;
     private String fullDesc;

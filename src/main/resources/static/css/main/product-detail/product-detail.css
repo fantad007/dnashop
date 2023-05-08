@@ -206,15 +206,15 @@ img {
         grid-gap: 1.5rem;
     }
     .card-wrapper {
-        height: 100vh;
         display: flex;
         justify-content: center;
         align-items: center;
     }
     .product-imgs {
+        padding-top: 30px;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: start;
     }
     .product-content {
         padding-top: 0;

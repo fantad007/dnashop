@@ -44,6 +44,7 @@
 }
 .products .list-products .card .price {
   margin-top: 15px;
+  padding: 0 10px;
   text-align: center;
 }
 .products .list-products .card .price .product-name {
@@ -51,7 +52,9 @@
   font-weight: 900;
 }
 .products .list-products .card .price p {
+  font-size: 20px;
   font-weight: 700;
+  margin-top: 10px;
   color: red;
 }
 .products .list-products .card .price div {
