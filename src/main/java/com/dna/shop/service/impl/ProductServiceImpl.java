@@ -25,6 +25,7 @@ public class ProductServiceImpl implements ProductService {
         // Set gia tri cho ProductEntity
         productEntity.setProductCode(createProductDto.getProductCode());
         productEntity.setName(createProductDto.getProductName());
+        productEntity.setTrademark(createProductDto.getTrademark());
         productEntity.setPrice(createProductDto.getPrice());
         CategoryEntity category = categoryService.findCategoryById(createProductDto.getCategoryId());
         if (category != null) {

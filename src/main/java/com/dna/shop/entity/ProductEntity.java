@@ -14,6 +14,7 @@ import javax.persistence.*;
 public class ProductEntity extends BaseAuditEntity {
     private String productCode;
     private String name;
+    private String trademark;
     private double price;
     private String shortDesc;
     private String fullDesc;
