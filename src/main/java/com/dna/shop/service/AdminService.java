@@ -12,6 +12,6 @@ public interface AdminService {
     void updateResetPasswordToken(String token, String email) throws UsernameNotFoundException;
     AdminEntity getByResetPasswordToken(String token);
     void updatePassword(AdminEntity admin, String newPassword);
-    void sendEmail(AdminEntity admin, String siteURL);
-    void sendEmail(String recipientEmail, String link) throws MessagingException, UnsupportedEncodingException;
+    void sendEmailVerify(AdminEntity admin, String siteURL);
+    void sendEmailResetPass(String recipientEmail, String link) throws MessagingException, UnsupportedEncodingException;
 }
