@@ -38,6 +38,7 @@
 }
 .products .list-products .card .thumbnail {
   width: 100%;
+  padding: 5px;
 }
 .products .list-products .card .thumbnail img {
   width: 100%;
