@@ -146,7 +146,7 @@ img {
 .purchase-info input,
 .purchase-info .btn {
     border: 1.5px solid #ddd;
-    border-radius: 25px;
+    border-radius: 5px;
     text-align: center;
     padding: 0.45rem 0.8rem;
     outline: 0;
@@ -160,12 +160,19 @@ img {
 
 .purchase-info .btn {
     cursor: pointer;
-    color: #1f1f1f;
+    font-size: 14px;
+    color: #FFF;
+}
+
+.purchase-info .btn a {
+    font-weight: 700;
+    text-decoration: none;
+    color: #FFF;
 }
 
 .purchase-info .btn:first-of-type {
-    background: transparent;
-    border: 1px solid #1f1f1f;
+    border: 1.5px solid #03649F;
+    background-color: #03649F;
     transition: .6s;
 }
 
@@ -176,6 +183,7 @@ img {
 .social-links {
     display: flex;
     align-items: center;
+    color: #ffc107;
 }
 
 .social-links a {
@@ -184,8 +192,8 @@ img {
     justify-content: center;
     width: 32px;
     height: 32px;
-    color: #000;
-    border: 1px solid #000;
+    color: #ffc107;
+    border: 1px solid #ffc107;
     margin: 0 0.2rem;
     border-radius: 50%;
     text-decoration: none;
@@ -194,7 +202,7 @@ img {
 }
 
 .social-links a:hover {
-    background: #000;
+    background: #03649F;
     border-color: transparent;
     color: #fff;
 }
