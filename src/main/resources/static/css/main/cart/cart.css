@@ -142,10 +142,15 @@
   text-align: center;
 }
 .cart .summary-bill .checkout a {
-  background-color: orange;
+  background-color: #ffcc02;
   text-decoration: none;
   color: #fff;
-  padding: 5px 15px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-weight: 700;
+}
+.cart .summary-bill .checkout a:hover {
+  background-color: rgba(255, 204, 2, 0.9098039216);
 }
 @media screen and (max-width: 799px) {
   .cart {

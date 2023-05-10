@@ -145,10 +145,15 @@
             padding: 30px 15px;
             text-align: center;
             a {
-                background-color: orange;
+                background-color: #ffcc02;
                 text-decoration: none;
                 color: #fff;
-                padding: 5px 15px;
+                padding: 10px 15px;
+                border-radius: 5px;
+                font-weight: 700;
+            }
+            a:hover {
+                background-color: #ffcc02e8;
             }
         }
     }

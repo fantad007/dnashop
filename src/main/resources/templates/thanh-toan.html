@@ -6,44 +6,69 @@
       xsi:schemaLocation="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <title>DNAHEALTH - THANH TOÁN</title>
+    <link rel="icon" href="https://res.cloudinary.com/dkylojnfz/image/upload/v1682956051/dnahealth/logo/logo.svg"
+          type="image/svg+xml">
+    <link rel="stylesheet" href="font-awesome-pro-master/css/all.css">
+    <link rel="stylesheet" href="css/main/cart/cart.css">
+    <link rel="stylesheet" href="css/main/payment/payment.css">
+    <link rel="stylesheet" href="css/main/main.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-<th:block th:each="item : ${order.orderDetails}">
-    <p th:text="${item.product.name}"></p>
-    <p th:text="${#numbers.formatCurrency(item.product.price)}"></p>
-    <p th:text="${item.quantity}"></p>
-</th:block>
-<p th:text="${order.totalMoney}"></p>
-
-<h1>THÔNG TIN KHÁCH HÀNG</h1>
-<p>Điền thông tin của bạn để chúng tôi có thể tư vấn</p>
-<div>
-    <form th:action="@{/process_customer_information}" method="post" th:object="${information}">
-        <div class="info-fill">
-            <input class="info-input" th:field="*{name}" type="text"
-                   placeholder="Tên của bạn">
+<div class="container">
+    <div th:replace="fragments/header :: header-body" th:remove="tag"></div>
+    <main>
+        <div th:replace="fragments/utility-oasis :: utility-oasis-body"></div>
+        <div class="web-content">
+            <div class="cart">
+                <div class="order">
+                    <div class="customer">
+                        <div class="free-ship">
+                            <h1>THÔNG TIN KHÁCH HÀNG</h1>
+                            <p>Điền thông tin của bạn để nhận sản phẩm nhé</p>
+                            <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                        </div>
+                        <div>
+                            <form th:action="@{/process_customer_information}" method="post" th:object="${information}">
+                                <div class="info-fill">
+                                    <input class="info-input" th:field="*{name}" type="text"
+                                           placeholder="Tên của bạn">
+                                </div>
+                                <div class="info-fill">
+                                    <input class="info-input" th:field="*{phone}" type="text"
+                                           placeholder="Số điện thoại">
+                                </div>
+                                <div class="info-fill">
+                                    <input class="info-input" th:field="*{email}" type="text"
+                                           placeholder="Email">
+                                </div>
+                                <div class="info-fill">
+                                    <input class="info-input" th:field="*{address}" type="text"
+                                           placeholder="Địa chỉ">
+                                </div>
+                                <div class="info-fill">
+                                    <input class="info-input" th:field="*{note}" type="text"
+                                           placeholder="Ghi chú tuỳ chọn">
+                                </div>
+                                <div class="info-fill">
+                                    <input class="btn-input" type="submit" value="Xác Nhận">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="info-fill">
-            <input class="info-input" th:field="*{phone}" type="text"
-                   placeholder="Số điện thoại">
-        </div>
-        <div class="info-fill">
-            <input class="info-input" th:field="*{email}" type="text"
-                   placeholder="Email">
-        </div>
-        <div class="info-fill">
-            <input class="info-input" th:field="*{address}" type="text"
-                   placeholder="Địa chỉ">
-        </div>
-        <div class="info-fill">
-            <input class="info-input" th:field="*{note}" type="text"
-                   placeholder="Ghi chú tuỳ chọn">
-        </div>
-        <div class="info-fill">
-            <input class="btn-input" type="submit" value="Lưu">
-        </div>
-    </form>
+    </main>
+    <div th:replace="fragments/footer :: footer-body"></div>
 </div>
+<script src="js/modernizr.js"></script>
+<script src="js/jquery-2.1.1.js"></script>
+<script src="js/jquery.menu-aim.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>

@@ -17,6 +17,7 @@ public class PayController {
     @GetMapping("/thanh-toan")
     public String viewPayInformation(Model model) {
         OrderEntity orderEntity = service.getOrder();
+        model.addAttribute("TOTAL_QUANTITIES", service.getTotalQuantities());
         model.addAttribute("order", orderEntity);
         model.addAttribute("information", new Customer());
         return "thanh-toan";
