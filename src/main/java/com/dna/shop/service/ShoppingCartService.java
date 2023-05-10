@@ -14,7 +14,7 @@ public interface ShoppingCartService {
     Collection<OrderDetailEntity> getAllCartItems();
     int getCount();
     double getAmount();
-    OrderEntity getOrderDetail();
+    OrderEntity getOrder();
     int getTotalQuantities();
     boolean saveCart(Customer information);
 }

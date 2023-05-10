@@ -74,7 +74,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
     }
 
     @Override
-    public OrderEntity getOrderDetail() {
+    public OrderEntity getOrder() {
         orderEntity.setOrderDetails(getAllCartItems());
         orderEntity.setTotalMoney(getAmount());
         return orderEntity;
@@ -93,7 +93,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
     @Override
     public boolean saveCart(Customer information) {
         try {
-            OrderEntity orderEntity = getOrderDetail();
+            OrderEntity orderEntity = getOrder();
             Collection<OrderEntity> orderEntities = new ArrayList<>();
             orderEntities.add(orderEntity);
             information.setOrderEntities(orderEntities);
