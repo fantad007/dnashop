@@ -40,18 +40,19 @@ form .info-fill:last-child {
     font-weight: 700;
     font-family: 'Lexend', sans-serif;
     font-size: 14px;
-    color: #1f1f1fb3;
+    color: #f1f6f9;
 }
 
 .info-fill .btn-input {
-    width: 170px;
+    width: 140px;
     border: none;
     border-radius: 5px;
     text-transform: uppercase;
     font-weight: 700;
-    font-size: 14px;
-    margin: 0;
-    padding: 10px 15px;
+    font-size: 16px;
+    margin: 0 auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
     background-color: #ffcc02;
     color: #FFF;
     cursor: pointer;

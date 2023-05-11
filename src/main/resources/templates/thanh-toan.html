@@ -55,7 +55,12 @@
                                            placeholder="Ghi chú tuỳ chọn">
                                 </div>
                                 <div class="info-fill">
-                                    <input class="btn-input" type="submit" value="Xác Nhận">
+                                    <th:block th:if="${order.totalMoney != 0}">
+                                        <input class="btn-input" type="submit" value="Xác Nhận">
+                                    </th:block>
+                                    <th:block th:if="${order.totalMoney == 0}">
+                                        <div class="btn-input">Xác Nhận</div>
+                                    </th:block>
                                 </div>
                             </form>
                         </div>
