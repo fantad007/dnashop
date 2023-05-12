@@ -13,6 +13,7 @@
     <link rel="icon" href="https://res.cloudinary.com/dkylojnfz/image/upload/v1682956051/dnahealth/logo/logo.svg"
           type="image/svg+xml">
     <link rel="stylesheet" href="font-awesome-pro-master/css/all.css">
+    <link rel="stylesheet" href="node_modules/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="css/main/support-info/support-info.css">
     <link rel="stylesheet" href="css/main/products/products.css">
     <link rel="stylesheet" href="css/main/product-and-email/product-and-email.css">
@@ -81,21 +82,36 @@
                 <div class="title">
                     <h2>SẢN PHẨM NỔI BẬT</h2>
                 </div>
-                <div class="list-products">
-                    <th:block th:each="p: ${LIST_PRODUCT}">
-                        <div class="card">
-                            <div class="thumbnail">
-                                <img th:src="|https://res.cloudinary.com/dkylojnfz/image/upload/dnahealth/products/${p.category.categoryCode}/${p.productCode}/thumbnail/thumbnail.svg|" alt=""/>
-                            </div>
-                            <div class="price">
-                                <h3 class="product-name" th:text="${p.name}"></h3>
-                                <p th:text="${#numbers.formatDecimal(p.price, 0, 'POINT', 0, 'POINT')} + 'đ'"></p>
-                                <div>
-                                    <a th:href="@{/chi-tiet-san-pham(id=${p.id})}">XEM CHI TIẾT</a>
+                <div class="slide-pic">
+                    <div class="swiper">
+                        <!-- Additional required wrapper -->
+                        <div class="swiper-wrapper">
+                            <!-- Slides -->
+                            <th:block th:each="p: ${LIST_PRODUCT}">
+                            <div class="swiper-slide">
+                                <div class="card">
+                                    <div class="thumbnail">
+                                        <img th:src="|https://res.cloudinary.com/dkylojnfz/image/upload/dnahealth/products/${p.category.categoryCode}/${p.productCode}/thumbnail/thumbnail.svg|" alt=""/>
+                                    </div>
+                                    <div class="price">
+                                        <h3 class="product-name" th:text="${p.name}"></h3>
+                                        <p th:text="${#numbers.formatDecimal(p.price, 0, 'POINT', 0, 'POINT')} + 'đ'"></p>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <div>
+                                            <a th:href="@{/chi-tiet-san-pham(id=${p.id})}">XEM CHI TIẾT</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+                            </th:block>
                         </div>
-                    </th:block>
+                        <!-- If we need navigation buttons -->
+                        <div class="swiper-pagination"></div>
+                    </div>
                 </div>
             </div>
             <div class="products">
@@ -110,6 +126,8 @@
     </main>
     <div th:replace="fragments/footer :: footer-body"></div>
 </div>
+<script src="node_modules/swiper/swiper-bundle.min.js"></script>
+<script src="js/swiper_js.js"></script>
 <script src="js/modernizr.js"></script>
 <script src="js/jquery-2.1.1.js"></script>
 <script src="js/jquery.menu-aim.js"></script>
@@ -118,10 +136,6 @@
     $( document ).ready(function() {
         $('.home-tab').addClass('active');
     });
-
-
-
-
 </script>
 </body>
 </html>

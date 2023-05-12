@@ -1,0 +1,48 @@
+.detail-description {
+    padding: 30px;
+    background-color: #F1F6F9;
+    margin-bottom: 60px;
+}
+
+.detail-description h2 {
+    text-align: center;
+    font-size: 48px;
+    color: #03649e;
+}
+
+.detail-description div {
+    margin: 30px 0;
+}
+
+.detail-name, .detail-function, .detail-object,
+.detail-ingredient, .detail-how-to-use, .detail-made-in,
+.detail-trademark, .detail-specifications, .detail-expiry,
+.detail-preserve {
+    width: 100%;
+    display: flex;
+}
+
+.detail-description div div {
+    width: 50%;
+}
+
+.detail-name div:first-child, .detail-function div:nth-child(2),
+.detail-object div:first-child, .detail-ingredient div:nth-child(2),
+.detail-how-to-use div:first-child, .detail-made-in div:nth-child(2),
+.detail-trademark div:first-child, .detail-specifications div:nth-child(2),
+.detail-expiry div:first-child, .detail-preserve div:nth-child(2) {
+    padding: 30px;
+}
+
+.detail-description div div h3 {
+    color: #03649e;
+}
+
+.detail-description div div p {
+    margin: 10px;
+    color: #1f1f1f;
+}
+
+.detail-description div div img {
+    width: 100%;
+}

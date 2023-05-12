@@ -10,9 +10,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <title th:text="${title}"></title>
-    <link rel="icon" href="https://res.cloudinary.com/dkylojnfz/image/upload/v1682956051/dnahealth/logo/logo.svg" type="image/svg+xml">
+    <link rel="icon" href="https://res.cloudinary.com/dkylojnfz/image/upload/v1682956051/dnahealth/logo/logo.svg"
+          type="image/svg+xml">
     <link rel="stylesheet" href="font-awesome-pro-master/css/all.css">
     <link rel="stylesheet" href="css/main/product-detail/product-detail.css">
+    <link rel="stylesheet" href="css/main/product-detail/detail-description/detail-description.css">
     <link rel="stylesheet" href="css/main/main.css">
     <link rel="stylesheet" href="css/styles.css">
     <style>
@@ -44,9 +46,10 @@
             background-color: #1f1f1f;
             color: #fff;
         }
+
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-<!--    <script src="js/product-detail-js/sizeHandleScript.js"></script>-->
+    <!--    <script src="js/product-detail-js/sizeHandleScript.js"></script>-->
 </head>
 <body>
 <div class="container">
@@ -61,7 +64,8 @@
                         <div class="img-display">
                             <div class="img-showcase">
                                 <th:block th:each="i: ${#numbers.sequence(1, 5)}">
-                                    <img th:src="|https://res.cloudinary.com/dkylojnfz/image/upload/dnahealth/products/${productDetail.category.categoryCode}/${productDetail.productCode}/slide-card/img-${i}.svg|" alt="">
+                                    <img th:src="|https://res.cloudinary.com/dkylojnfz/image/upload/dnahealth/products/${productDetail.category.categoryCode}/${productDetail.productCode}/slide-card/img-${i}.svg|"
+                                         alt="">
                                 </th:block>
                             </div>
                         </div>
@@ -69,7 +73,8 @@
                             <th:block th:each="i: ${#numbers.sequence(1, 5)}">
                                 <div class="img-item">
                                     <a href="#" th:attr="data-id=${i}">
-                                        <img th:src="|https://res.cloudinary.com/dkylojnfz/image/upload/dnahealth/products/${productDetail.category.categoryCode}/${productDetail.productCode}/slide-card/img-${i}.svg|" alt="">
+                                        <img th:src="|https://res.cloudinary.com/dkylojnfz/image/upload/dnahealth/products/${productDetail.category.categoryCode}/${productDetail.productCode}/slide-card/img-${i}.svg|"
+                                             alt="">
                                     </a>
                                 </div>
                             </th:block>
@@ -85,12 +90,15 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                            <span>4.7(21)</span>
+                            <i class="fas fa-star"></i>
                         </div>
                         <div class="product-price">
-                            <p class="last-price">Giá gốc: <span th:text="${#numbers.formatDecimal(productDetail.price * 0.05 + productDetail.price, 0, 'COMMA', 0, 'POINT')} + 'đ'"></span></p>
-                            <p class="new-price">Giá hiện tại: <span th:text="${#numbers.formatDecimal(productDetail.price, 0, 'POINT', 0, 'POINT')} + 'đ'"></span><span> (5%)</span></p>
+                            <p class="last-price">Giá gốc: <span
+                                    th:text="${#numbers.formatDecimal(productDetail.price * 0.05 + productDetail.price, 0, 'COMMA', 0, 'POINT')} + 'đ'"></span>
+                            </p>
+                            <p class="new-price">Giá hiện tại: <span
+                                    th:text="${#numbers.formatDecimal(productDetail.price, 0, 'POINT', 0, 'POINT')} + 'đ'"></span><span> (5%)</span>
+                            </p>
                         </div>
                         <div class="product-detail">
                             <h2>mô tả sản phẩm: </h2>
@@ -106,7 +114,8 @@
                         <div class="purchase-info">
                             <!--<input type="number" min="0" value="1">-->
                             <button type="button" class="btn">
-                                <a id="add-to-cart" th:href="@{|/gio-hang/them/${productDetail.id}|}">THÊM VÀO GIỎ HÀNG</a> <i class="fas fa-shopping-cart"></i>
+                                <a id="add-to-cart" th:href="@{|/gio-hang/them/${productDetail.id}|}">THÊM VÀO GIỎ
+                                    HÀNG</a> <i class="fas fa-shopping-cart"></i>
                             </button>
                         </div>
                         <div class="social-links">
@@ -130,6 +139,135 @@
                     </div>
                 </div>
             </div>
+<!--            <div class="detail-description">-->
+<!--                <h2>MÔ TẢ CHI TIẾT</h2>-->
+<!--                <div class="detail-name">-->
+<!--                    <div class="left">-->
+<!--                        <h3>1. Tên sản phẩm: Sữa hỗ trợ loãng xương và giúp hồi phục PaPamilk Gold chứa Tổ Yến (3 in 1) - Hộp 24-->
+<!--                            gói (Gói 32gr)-->
+<!--                        </h3>-->
+<!--                        <p>-->
+<!--                            - Là sữa bột chứa thành phần cao cấp như chiết xuất Tổ Yến từ nhà máy Oryza Nhật Bản ( Một trong 3 nhà máy lớn nhất nhật bản, thành lập hơn 100 năm ở Nhật Bản) kết hợp cùng các nguyên liệu chọn lọc như bột kem Newzealand, Canxi từ sữa bò Trucal của nhà máy đa quốc gia Glanbia, Sữa non 24g từ Mỹ đạt tiêu chuẩn Koschel, Halal.-->
+<!--                            <br>-->
+<!--                            - Dây chuyền sản xuất hiện đại từ nhà máy GMP Dinh Dưỡng Y Học và Thực Phẩm chức năng Hera Milk ( Hai năm liền đoạt cúp vàng hàng Việt Nam chất lượng cao 2020-2021)-->
+<!--                            <br>-->
+<!--                            - Papamilk Gold chứa Tổ Yến là sản phẩm được ra đời từ câu chuyện lan tỏa giá trị từ tâm đức bởi những Bác sĩ và Dược Sĩ đến người Việt Nam với sự cam kết nghiêm ngặt về chất lượng nguyên liệu, công thức tiên tiến khoa học, nhưng giá thành phù hợp với người tiêu dùng Việt Nam-->
+<!--                            <br>-->
+<!--                            - Papamilk Gold chứa Tổ Yến là món quà hoàn hảo cho những ai quan tâm đến sức khoẻ gia đình mình.-->
+<!--                        </p>-->
+<!--                    </div>-->
+<!--                    <div class="right">-->
+<!--                        <img src="https://res.cloudinary.com/dkylojnfz/image/upload/v1683538553/dnahealth/products/MILK/PAPAMILKGOLD24/slide-card/img-1.svg" alt="">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="detail-function">-->
+<!--                    <div class="left">-->
+<!--                        <img src="https://res.cloudinary.com/dkylojnfz/image/upload/v1683538706/dnahealth/products/MILK/PAPAMILKGOLD24/slide-card/img-2.svg" alt="">-->
+<!--                    </div>-->
+<!--                    <div class="right">-->
+<!--                        <h3>2. Công dụng:</h3>-->
+<!--                        <p>-->
+<!--                            - Với nguồn dinh dưỡng tiên tiến phù hợp cho:-->
+<!--                            <br>-->
+<!--                            &nbsp; + Người cần hồi phục, mới ốm dậy-->
+<!--                            <br>-->
+<!--                            &nbsp; + Người ung thư, hậu phẫu-->
+<!--                            <br>-->
+<!--                            &nbsp; + Tăng cường sức đề kháng-->
+<!--                            <br>-->
+<!--                            &nbsp; + Hỗ trợ xương, khớp chắc khỏe, cần xây dựng hệ cơ xương vững chắc-->
+<!--                            <br>-->
+<!--                            &nbsp; + Hỗ trợ trí nhớ và não bộ-->
+<!--                            <br>-->
+<!--                            &nbsp; + Giảm cholesterol và tốt cho tim mạch-->
+<!--                        </p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="detail-object">-->
+<!--                    <div class="left">-->
+<!--                        <h3>3. Đối tượng sử dụng:</h3>-->
+<!--                        <p>-->
+<!--                            - Đối tượng trên 18 tuổi-->
+<!--                        </p>-->
+<!--                    </div>-->
+<!--                    <div class="right">-->
+<!--                        <img src="https://res.cloudinary.com/dkylojnfz/image/upload/v1683538723/dnahealth/products/MILK/PAPAMILKGOLD24/slide-card/img-3.svg" alt="">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="detail-ingredient">-->
+<!--                    <div class="left">-->
+<!--                        <img src="https://res.cloudinary.com/dkylojnfz/image/upload/v1683538741/dnahealth/products/MILK/PAPAMILKGOLD24/slide-card/img-4.svg" alt="">-->
+<!--                    </div>-->
+<!--                    <div class="right">-->
+<!--                        <h3>4. Thành phần:</h3>-->
+<!--                        <p>-->
+<!--                            - Bột sữa nguyên kem, Maltodextrin, Bột kem thực vật, Đường tinh luyện, Hỗn hợp tricanxi , Chất xơ, Collagen thủy phân, Đạm đậu nành-->
+<!--                            <br>-->
+<!--                            - Hỗn hợp vitamin và: Magie, sắt, Vitamin A, Vitamin D3, Vitamin E, Vitamin C, Vitamin B1, Vitamin B2, Vitamin B6, Vitamin B12 , Acid Folic, Choline, Taurine, DHA, L-carnitine-->
+<!--                            <br>-->
+<!--                            - Hương tổng hợp (hương vani, hương sữa). Có chứa sữa và đạm đậu nành.-->
+<!--                            <br>-->
+<!--                            - Bột sữa non 24H từ Mỹ-->
+<!--                            <br>-->
+<!--                            - Chứa Tổ Yến (Chiết xuất Tổ Yến Nhật Bản)-->
+<!--                            <br>-->
+<!--                            - Có sử dụng canxi sữa từ Trucal (Châu Âu)-->
+<!--                        </p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="detail-how-to-use">-->
+<!--                    <div class="left">-->
+<!--                        <h3>5 . Cách dùng:</h3>-->
+<!--                        <p>-->
+<!--                            - Pha 1gói ( trọng lượng 32gr)  với 140ml nước chín ấm (từ 40 đến 50 độ C) khuấy đều cho đến khi tan hoàn toàn. 1 gói tương được 32g-->
+<!--                            <br>-->
+<!--                            - Dùng 2 - 3 ly mỗi ngày. Dùng ngay sau khi pha-->
+<!--                        </p>-->
+<!--                    </div>-->
+<!--                    <div class="right">-->
+<!--                        <img src="https://res.cloudinary.com/dkylojnfz/image/upload/v1683538750/dnahealth/products/MILK/PAPAMILKGOLD24/slide-card/img-5.svg" alt="">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="detail-made-in">-->
+<!--                    <div class="left"></div>-->
+<!--                    <div class="right">-->
+<!--                        <h3>6. Xuất xứ:</h3>-->
+<!--                        <p>- Việt Nam - Cty TNHH VKAIZEN – Chi nhánh Bình Dương</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="detail-trademark">-->
+<!--                    <div class="left">-->
+<!--                        <h3>7.Thương hiệu:</h3>-->
+<!--                        <p>- VKAIZEN</p>-->
+<!--                    </div>-->
+<!--                    <div class="right"></div>-->
+<!--                </div>-->
+<!--                <div class="detail-specifications">-->
+<!--                    <div class="left"></div>-->
+<!--                    <div class="right">-->
+<!--                        <h3>8. Quy cách:</h3>-->
+<!--                        <p>- 01 hộp 24 gói (mỗi gói 32g)</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="detail-expiry">-->
+<!--                    <div class="left">-->
+<!--                        <h3>9. NSX & HSD:</h3>-->
+<!--                        <p>- 18 tháng kể từ ngày sản xuất xem dưới đáy hộp</p>-->
+<!--                    </div>-->
+<!--                    <div class="right"></div>-->
+<!--                </div>-->
+<!--                <div class="detail-preserve">-->
+<!--                    <div class="left"></div>-->
+<!--                    <div class="right">-->
+<!--                        <h3>10. Bảo quản:</h3>-->
+<!--                        <p>-->
+<!--                            - Bảo quản nơi khô ráo, thoáng mát, tránh ánh nắng trực tiếp.-->
+<!--                            <br>-->
+<!--                            - Không bảo quản trong tủ lạnh.Để xa tầm tay trẻ em.-->
+<!--                        </p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
         </div>
     </main>
     <div th:replace="fragments/footer :: footer-body"></div>
