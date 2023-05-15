@@ -56,6 +56,10 @@
                                 color: #1F1F1F;
                                 font-weight: 900;
                                 margin: 0 5px;
+                                display: -webkit-box;
+                                overflow: hidden;
+                                -webkit-line-clamp: 3;
+                                -webkit-box-orient: vertical;
                             }
                             p {
                                 font-size: 20px;
@@ -81,6 +85,22 @@
                                     border-radius: 5px;
                                 }
                             }
+                        }
+                    }
+                    @media screen and (max-width: 449px) {
+                        width: 100%;
+                        margin: 0;
+                        .card {
+                            width: 300px;
+                            margin-left: auto;
+                            margin-right: auto;
+                        }
+                    }
+                    @media screen and (max-width: 320px) {
+                        .card {
+                            width: 90%;
+                            margin-left: auto;
+                            margin-right: auto;
                         }
                     }
                 }
@@ -117,6 +137,10 @@
                     color: #1F1F1F;
                     font-weight: 900;
                     margin: 0 5px;
+                    display: -webkit-box;
+                    overflow: hidden;
+                    -webkit-line-clamp: 3;
+                    -webkit-box-orient: vertical;
                 }
                 p {
                     font-size: 20px;
@@ -137,6 +161,22 @@
                     font-weight: 700;
                     text-decoration: none;
                     color: #FFF;
+                }
+            }
+            @media screen and (max-width: 449px) {
+                .thumbnail {
+                    img {
+                        border-radius: 10px 10px 0 0;
+                    }
+                }
+                .price {
+                    background-color: transparent;
+                    i {
+                        display: none;
+                    }
+                    div {
+                        display: none;
+                    }
                 }
             }
         }

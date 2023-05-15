@@ -39,7 +39,7 @@
                                     <input type="hidden" name="id" th:value="${item.product.id}"/>
                                     <div class="detail-info">
                                         <div class="cart-image">
-                                            <img src="images/t-shirt/DNA001/without-model/shirt-1.jpg" alt="">
+                                            <img th:src="|https://res.cloudinary.com/dkylojnfz/image/upload/dnahealth/products/${item.product.category.categoryCode}/${item.product.productCode}/thumbnail/thumbnail.svg|" alt=""/>
                                         </div>
                                         <div class="product-info">
                                             <p class="product-name" th:text="${item.product.name}"></p>
