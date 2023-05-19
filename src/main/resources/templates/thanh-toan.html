@@ -1,79 +1,69 @@
 <!DOCTYPE html>
 <!--suppress ALL -->
-<html lang="en"
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <title>DNAHEALTH - THANH TOÁN</title>
-    <link rel="icon" href="https://res.cloudinary.com/dkylojnfz/image/upload/v1682956051/dnahealth/logo/logo.svg"
-          type="image/svg+xml">
+    <link rel="icon" href="images/logo/logo.svg" type="image/svg+xml">
     <link rel="stylesheet" href="font-awesome-pro-master/css/all.css">
-    <link rel="stylesheet" href="css/main/cart/cart.css">
-    <link rel="stylesheet" href="css/main/payment/payment.css">
-    <link rel="stylesheet" href="css/main/main.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <!-- css -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/main/gio-hang/gio-hang.css">
+    <link rel="stylesheet" href="css/main/thanh-toan/thanh-toan.css">
+    <!-- box icons link -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 </head>
+
 <body>
-<div class="container">
     <div th:replace="fragments/header :: header-body" th:remove="tag"></div>
+    <!-- main -->
     <main>
-        <div th:replace="fragments/utility-oasis :: utility-oasis-body"></div>
-        <div class="web-content">
-            <div class="cart">
-                <div class="order">
-                    <div class="customer">
-                        <div class="free-ship">
-                            <h1>THÔNG TIN KHÁCH HÀNG</h1>
-                            <p>Điền thông tin của bạn để nhận sản phẩm nhé</p>
-                            <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-                        </div>
-                        <div>
-                            <form th:action="@{/process_customer_information}" method="post" th:object="${information}">
-                                <div class="info-fill">
-                                    <input class="info-input" th:field="*{name}" type="text"
-                                           placeholder="Tên của bạn">
-                                </div>
-                                <div class="info-fill">
-                                    <input class="info-input" th:field="*{phone}" type="text"
-                                           placeholder="Số điện thoại">
-                                </div>
-                                <div class="info-fill">
-                                    <input class="info-input" th:field="*{email}" type="text"
-                                           placeholder="Email">
-                                </div>
-                                <div class="info-fill">
-                                    <input class="info-input" th:field="*{address}" type="text"
-                                           placeholder="Địa chỉ">
-                                </div>
-                                <div class="info-fill">
-                                    <input class="info-input" th:field="*{note}" type="text"
-                                           placeholder="Ghi chú tuỳ chọn">
-                                </div>
-                                <div class="info-fill">
-                                    <th:block th:if="${order.totalMoney != 0}">
-                                        <input class="btn-input" type="submit" value="Xác Nhận">
-                                    </th:block>
-                                    <th:block th:if="${order.totalMoney == 0}">
-                                        <div class="btn-input">Xác Nhận</div>
-                                    </th:block>
-                                </div>
-                            </form>
-                        </div>
+        <section class="cart" style="margin-top: 9%;">
+            <div class="order">
+                <div class="customer">
+                    <div class="free-ship">
+                        <h1>THÔNG TIN KHÁCH HÀNG</h1>
+                        <p>Điền thông tin của bạn để nhận sản phẩm nhé</p>
+                        <i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i>
+                    </div>
+                    <div>
+                        <form th:action="@{/process_customer_information}" method="post" th:object="${information}">
+                            <div class="info-fill">
+                                <input class="info-input" th:field="*{name}" type="text" placeholder="Tên của bạn">
+                            </div>
+                            <div class="info-fill">
+                                <input class="info-input" th:field="*{phone}" type="text" placeholder="Số điện thoại">
+                            </div>
+                            <div class="info-fill">
+                                <input class="info-input" th:field="*{email}" type="text" placeholder="Email">
+                            </div>
+                            <div class="info-fill">
+                                <input class="info-input" th:field="*{address}" type="text" placeholder="Địa chỉ">
+                            </div>
+                            <div class="info-fill">
+                                <input class="info-input" th:field="*{note}" type="text" placeholder="Ghi chú tuỳ chọn">
+                            </div>
+                            <div class="info-fill">
+                                <th:block th:if="${order.totalMoney != 0}">
+                                    <input class="btn" type="submit" value="Xác Nhận">
+                                </th:block>
+                                <th:block th:if="${order.totalMoney == 0}">
+                                    <div class="btn">Xác Nhận</div>
+                                </th:block>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     </main>
     <div th:replace="fragments/footer :: footer-body"></div>
-</div>
-<script src="js/modernizr.js"></script>
-<script src="js/jquery-2.1.1.js"></script>
-<script src="js/jquery.menu-aim.js"></script>
-<script src="js/main.js"></script>
+    <!-- js file link -->
+    <script src="js/script.js"></script>
 </body>
+
 </html>

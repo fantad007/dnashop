@@ -5,58 +5,53 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.thymeleaf.org">
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="">
-    <title>DNA - TẤT CẢ SẢN PHẨM</title>
-	<link rel="icon" href="https://res.cloudinary.com/dkylojnfz/image/upload/v1682956051/dnahealth/logo/logo.svg" type="image/svg+xml">
-	<link rel="stylesheet" href="font-awesome-pro-master/css/all.css">
-	<link rel="stylesheet" href="css/main/products/products.css">
-	<link rel="stylesheet" href="css/main/main.css">
-	<link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <title>DNAHEALTH - TẤT CẢ SẢN PHẨM</title>
+    <link rel="icon" href="images/logo/logo.svg" type="image/svg+xml">
+    <!-- css -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/main/trang-chu/trang-chu.css">
+    <!-- box icons link -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 </head>
 <body>
-<div class="container">
-    <div th:replace="fragments/header :: header-body"></div>
-    <main>
-		<div th:replace="fragments/utility-oasis :: utility-oasis-body"></div>
-		<div class="web-content">
-			<div class="banner">
-				<a href="">
-					<img class="banner-desktop" src="images/banner/banner-desktop.svg" alt="">
-					<img class="banner-mobile" src="images/banner/banner-mobile.svg" alt="">
-				</a>
-			</div>
-			<div class="products">
-				<div class="list-products">
-					<th:block th:each="p: ${LIST_PRODUCT}">
-						<a th:href="@{/chi-tiet-san-pham(id=${p.id})}" class="card">
-							<div class="thumbnail">
-								<img th:src="|https://res.cloudinary.com/dkylojnfz/image/upload/dnahealth/products/${p.category.categoryCode}/${p.productCode}/thumbnail/thumbnail.svg|" alt=""/>
-							</div>
-							<div class="price">
-								<h3 class="product-name" th:text="${p.name}"></h3>
-								<p th:text="${#numbers.formatDecimal(p.price, 0, 'POINT', 0, 'POINT')} + 'đ'"></p>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<div>XEM CHI TIẾT</div>
-							</div>
-						</a>
-					</th:block>
-				</div>
-			</div>
-		</div>
-    </main>
-	<div th:replace="fragments/footer :: footer-body"></div>
-</div>
-<script src="js/modernizr.js"></script>
-<script src="js/jquery-2.1.1.js"></script>
-<script src="js/jquery.menu-aim.js"></script>
-<script src="js/main.js"></script>
+<div th:replace="fragments/header :: header-body"></div>
+<!-- main -->
+<main>
+    <!-- menu -->
+    <section class="menu" id="menu" style="margin-top: 9%;">
+        <div class="center-text">
+            <strong>Các Sản Phẩm Dinh Dưỡng Của DNAHEALTH</strong>
+            <h2>Sản Phẩm Dinh Dưỡng</h2>
+        </div>
+        <div class="menu-content">
+            <th:block th:each="p: ${LIST_PRODUCT}">
+                <div class="row">
+                    <a th:href="@{/chi-tiet-san-pham(id=${p.id})}" class="row-img">
+                        <img th:src="|https://res.cloudinary.com/dkylojnfz/image/upload/dnahealth/products/${p.category.categoryCode}/${p.productCode}/thumbnail/thumbnail.svg|"
+                             alt="Sữa Loãng Xương + Cho Người Tiểu Đường">
+                    </a>
+                    <h5 th:text="${p.name}"></h5>
+                    <h6 th:text="${#numbers.formatDecimal(p.price, 0, 'POINT', 0, 'POINT')} + 'đ'"></h6>
+                    <div class="ratings">
+                        <a href="#"><i class="bx bxs-star"></i></a>
+                        <a href="#"><i class="bx bxs-star"></i></a>
+                        <a href="#"><i class="bx bxs-star"></i></a>
+                        <a href="#"><i class="bx bxs-star"></i></a>
+                        <a href="#"><i class="bx bxs-star"></i></a>
+                    </div>
+                </div>
+            </th:block>
+        </div>
+    </section>
+</main>
+<div th:replace="fragments/footer :: footer-body"></div>
+
+<!-- js file link -->
+<script src="js/script.js"></script>
 <script>
     $( document ).ready(function() {
         $('.products-tab').addClass('active');

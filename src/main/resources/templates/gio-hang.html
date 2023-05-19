@@ -10,95 +10,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <title>DNAHEALTH - GIỎ HÀNG</title>
-    <link rel="icon" href="https://res.cloudinary.com/dkylojnfz/image/upload/v1682956051/dnahealth/logo/logo.svg"
-          type="image/svg+xml">
-    <link rel="stylesheet" href="font-awesome-pro-master/css/all.css">
-    <link rel="stylesheet" href="css/main/cart/cart.css">
-    <link rel="stylesheet" href="css/main/main.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="images/logo/logo.svg" type="image/svg+xml">
+    <!-- css -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/main/trang-chu/trang-chu.css">
+    <link rel="stylesheet" href="css/main/gio-hang/gio-hang.css">
+    <!-- box icons link -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 </head>
 <body>
-<div class="container">
-    <div th:replace="fragments/header :: header-body" th:remove="tag"></div>
-    <main>
-        <div th:replace="fragments/utility-oasis :: utility-oasis-body"></div>
-        <div class="web-content">
-            <div class="cart">
-                <div class="order">
-                    <div class="free-ship">
-                        <p>MIỄN PHÍ VẬN CHUYỂN TOÀN QUỐC VỚI GIÁ TRỊ ĐƠN HÀNG TỪ 800.000đ</p>
-                        <p>DNAHEALTH miễn phí vận chuyển cho tất cả các đơn hàng từ 800.000đ trên toàn quốc</p>
-                    </div>
-                    <div class="order-info">
-                        <div class="list-orders-title">
-                            <p>DANH SÁCH MUA SẮM <span th:text="'(' + ${TOTAL_QUANTITIES} + ')'"></span></p>
-                        </div>
-                        <div class="order-detail">
-                            <th:block th:each="item: ${CART_ITEMS}">
-                                <form th:action="@{/gio-hang/cap-nhat}" method="post">
-                                    <input type="hidden" name="id" th:value="${item.product.id}"/>
-                                    <div class="detail-info">
-                                        <div class="cart-image">
-                                            <img th:src="|https://res.cloudinary.com/dkylojnfz/image/upload/dnahealth/products/${item.product.category.categoryCode}/${item.product.productCode}/thumbnail/thumbnail.svg|" alt=""/>
-                                        </div>
-                                        <div class="product-info">
-                                            <p class="product-name" th:text="${item.product.name}"></p>
-                                            <div class="other-info">
-                                                <p><strong>DANH MỤC:</strong> <span
-                                                        th:text="${item.product.category.name}"></span></p>
-                                                <p>
-                                                    <strong>SỐ LƯỢNG:</strong>
-                                                    <input name="quantity" th:value="${item.quantity}"
-                                                           onblur="this.form.submit()"
-                                                           style="width: 30px;">
-                                                </p>
-                                                <p><strong>ĐƠN GIÁ:</strong> <span
-                                                        th:text="${#numbers.formatDecimal(item.product.price, 0, 'POINT', 0, 'POINT')} + 'đ'"></span>
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="price">
-                                            <p th:text="${#numbers.formatDecimal(item.product.price*item.quantity, 0, 'POINT', 0, 'POINT')} + 'đ'"></p>
-                                            <a th:href="@{|/gio-hang/xoa/${item.product.id}|}">XOÁ</a>
-                                        </div>
-                                    </div>
-                                </form>
-                            </th:block>
-                        </div>
-                    </div>
-                    <div class="continue-shopping">
-                        <a th:href="@{/san-pham}">TIẾP TỤC MUA SẮM</a>
-                        <a th:href="@{/gio-hang/lam-moi}">LÀM SẠCH GIỎ HÀNG</a>
-                    </div>
+<div th:replace="fragments/header :: header-body" th:remove="tag"></div>
+<!-- main -->
+<main>
+    <section class="cart" style="margin-top: 4%;">
+        <div class="order">
+            <div class="free-ship">
+                <p>MIỄN PHÍ VẬN CHUYỂN TOÀN QUỐC VỚI GIÁ TRỊ ĐƠN HÀNG TỪ 800.000đ</p>
+                <p>DNAHEALTH miễn phí vận chuyển cho tất cả các đơn hàng từ 800.000đ trên toàn quốc</p>
+            </div>
+            <div class="order-info">
+                <div class="list-orders-title">
+                    <p>DANH SÁCH MUA SẮM <span th:text="'(' + ${TOTAL_QUANTITIES} + ')'"></span></p>
                 </div>
-                <div class="summary-bill">
-                    <div class="summary">
-                        <p>TỔNG ĐƠN</p>
-                    </div>
-                    <div class="subtotal">
-                        <div>
-                            <p>TẠM TÍNH</p>
-                            <p th:text="${#numbers.formatDecimal(TOTAL, 0, 'POINT', 0, 'POINT')} + 'đ'"></p>
-                        </div>
-                    </div>
-                    <div class="total">
-                        <div>
-                            <p>TỔNG TIỀN</p>
-                            <p th:text="${#numbers.formatDecimal(TOTAL, 0, 'POINT', 0, 'POINT')} + 'đ'"></p>
-                        </div>
-                    </div>
-                    <div class="checkout">
-                        <a th:href="@{/thanh-toan}">THANH TOÁN</a>
-                    </div>
+                <div class="order-detail">
+                    <th:block th:each="item: ${CART_ITEMS}">
+                        <form th:action="@{/gio-hang/cap-nhat}" method="post">
+                            <input type="hidden" name="id" th:value="${item.product.id}"/>
+                            <div class="detail-info">
+                                <div class="cart-image">
+                                    <img th:src="|https://res.cloudinary.com/dkylojnfz/image/upload/dnahealth/products/${item.product.category.categoryCode}/${item.product.productCode}/thumbnail/thumbnail.svg|"
+                                         alt=""/>
+                                </div>
+                                <div class="product-info">
+                                    <p class="product-name" th:text="${item.product.name}"></p>
+                                </div>
+                                <div class="price">
+                                    <p th:text="${#numbers.formatDecimal(item.product.price*item.quantity, 0, 'POINT', 0, 'POINT')} + 'đ'"></p>
+                                    <div class="product-quantity">
+                                        <label for="quantity">SL: </label>
+                                        <input name="quantity" th:value="${item.quantity}" onblur="this.form.submit()">
+                                    </div>
+                                    <a class="btn" th:href="@{|/gio-hang/xoa/${item.product.id}|}">XOÁ</a>
+                                </div>
+                            </div>
+                        </form>
+                    </th:block>
                 </div>
             </div>
+            <div class="continue-shopping">
+                <a th:href="@{/san-pham}">Tiếp tục mua sắm</a>
+                <a th:href="@{/gio-hang/lam-moi}">Làm sạch giỏ hàng</a>
+            </div>
         </div>
-    </main>
-    <div th:replace="fragments/footer :: footer-body"></div>
-</div>
-<script src="js/modernizr.js"></script>
-<script src="js/jquery-2.1.1.js"></script>
-<script src="js/jquery.menu-aim.js"></script>
-<script src="js/main.js"></script>
+        <div class="summary-bill">
+            <div class="summary">
+                <p>TỔNG ĐƠN</p>
+            </div>
+            <div class="subtotal">
+                <div>
+                    <p>TẠM TÍNH</p>
+                    <p th:text="${#numbers.formatDecimal(TOTAL, 0, 'POINT', 0, 'POINT')} + 'đ'"></p>
+                </div>
+            </div>
+            <div class="total">
+                <div>
+                    <p>TỔNG TIỀN</p>
+                    <p th:text="${#numbers.formatDecimal(TOTAL, 0, 'POINT', 0, 'POINT')} + 'đ'"></p>
+                </div>
+            </div>
+            <div class="checkout">
+                <a class="btn" th:href="@{/thanh-toan}">Thanh toán</a>
+            </div>
+        </div>
+    </section>
+</main>
+<div th:replace="fragments/footer :: footer-body"></div>
+
+<!-- js file link -->
+<script src="js/script.js"></script>
 </body>
 </html>

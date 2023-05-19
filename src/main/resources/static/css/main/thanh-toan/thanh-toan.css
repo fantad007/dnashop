@@ -1,0 +1,96 @@
+.cart {
+    width: 550px;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart .order {
+    width: 100%;
+    margin-right: 0;
+}
+
+.customer {
+    width: 100%;
+    border-radius: 0.7rem;
+    padding: 15px;
+    text-align: center;
+    box-shadow: -1px 15px 26px -4px rgb(161 151 151 / 15%);
+}
+
+.cart .order .free-ship {
+    background-color: var(--main-color);
+}
+
+.cart .order .free-ship h1 {
+    color: var(--title-color);
+    font-size: var(--h2-font);
+    font-family: "Playfair Display", serif;
+}
+
+.cart .order .free-ship p {
+    color: var(--text-color);
+    font-size: var(--p-font);
+    margin-bottom: 10px;
+}
+
+.customer i {
+    color: var(--rr-color);
+    font-size: var(--p-font);
+}
+
+form .info-fill:last-child {
+    padding: 0;
+    padding-top: 15px;
+}
+
+.info-fill {
+    width: 100%;
+    text-align: center;
+}
+
+.info-fill .info-input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-bottom: 2px solid var(--other-color);
+    border-radius: 0;
+    font-weight: 700;
+    font-family: 'Lexend', sans-serif;
+    font-size: var(--p-font);
+    color: var(--text-color);
+    background-color: transparent;
+}
+
+.info-fill input::placeholder {
+    font-weight: 700;
+    font-family: 'Lexend', sans-serif;
+    font-size: var(--p-font);
+    color: var(--text-color);
+}
+
+.info-fill .btn {
+    background-color: #f24f04;
+    border: none;
+}
+
+@media screen and (max-width: 570px) {
+    .cart {
+        width: 479px;
+    }
+}
+
+@media screen and (max-width: 499px) {
+    .cart {
+        width: 350px;
+    }
+    .customer {
+        padding: 10px;
+    }
+}
+
+@media screen and (max-width: 370px) {
+    .cart {
+        width: 270px;
+    }
+}

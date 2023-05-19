@@ -1,144 +1,157 @@
 <!DOCTYPE html>
 <!--suppress ALL -->
-<html lang="en"
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <title>DNAHEALTH - TRANG CHỦ</title>
-    <link rel="icon" href="https://res.cloudinary.com/dkylojnfz/image/upload/v1682956051/dnahealth/logo/logo.svg"
-          type="image/svg+xml">
+    <link rel="icon" href="images/logo/logo.svg" type="image/svg+xml">
     <link rel="stylesheet" href="font-awesome-pro-master/css/all.css">
-    <link rel="stylesheet" href="node_modules/swiper/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="css/main/support-info/support-info.css">
-    <link rel="stylesheet" href="css/main/products/products.css">
-    <link rel="stylesheet" href="css/main/product-and-email/product-and-email.css">
-    <link rel="stylesheet" href="css/main/main.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <!-- css -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/main/trang-chu/trang-chu.css">
+    <!-- box icons link -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 </head>
+
 <body>
-<div class="container">
     <div th:replace="fragments/header :: header-body" th:remove="tag"></div>
+    <!-- main -->
     <main>
-        <div th:replace="fragments/utility-oasis :: utility-oasis-body"></div>
-        <div class="web-content">
-            <div class="banner">
-                <a href=""><img src="https://res.cloudinary.com/dkylojnfz/image/upload/dnahealth/banner/home_banner.svg" alt="ẢNH BANNER TRANG CHỦ"></a>
-            </div>
-            <div class="support-info">
-                <div class="top-info">
-                    <div>
-                        <i class="far fa-shipping-fast"></i>
-                        <p><strong>CHÍNH SÁCH GIAO HÀNG</strong></p>
-                        <hr>
-                        <p>Miễn phí giao hàng trên toàn quốc cho đơn hàng trị giá từ 800.000đ</p>
-                    </div>
-                    <div>
-                        <i class="far fa-user-headset"></i>
-                        <p><strong>TƯ VẤN SẢN PHẨM</strong></p>
-                        <hr>
-                        <p>Đội ngũ nhân viên luôn sẵn sàng 24/7 để hỗ trợ khách hàng về sản phẩm</p>
-                    </div>
-                    <div>
-                        <i class="far fa-shipping-fast"></i>
-                        <p><strong>CHÍNH SÁCH GIAO HÀNG</strong></p>
-                        <hr>
-                        <p>Miễn phí giao hàng trên toàn quốc cho đơn hàng trị giá từ 800.000đ</p>
-                    </div>
-                </div>
-                <div class="bottom-info">
-                    <div>
-                        <h2>DNA HEALTH</h2>
-                    </div>
-                    <div>
-                        <p>“Chào mừng bạn đến với DNAHEALTH - trang web cung cấp các sản phẩm dinh dưỡng chất lượng cao
-                            nhất. Chúng tôi tự hào cung cấp các sản phẩm được chọn lọc kỹ càng để đảm bảo chất lượng và
-                            hiệu quả. Hãy tham gia cùng chúng tôi để tìm hiểu thêm về các sản phẩm dinh dưỡng tốt nhất
-                            cho sức khỏe của bạn.”</p>
-                    </div>
+        <!-- home -->
+        <section class="home" id="home">
+            <div class="home-text">
+                <h1>Siêu Ưu Đãi <br> Mua 5 Tặng 1</h1>
+                <p>Mua 5 tặng 1. Nhận ngay 1 hộp 24 gói cùng loại khi mua 5 hộp Papamilk Gold hoặc 5 hộp Papamilk Diasure. Ưu đãi chỉ đến hết tháng 5</p>
+                <div class="home-btnn">
+                    <a href="#" class="btn">Đặt hàng ngay</a>
+                    <a href="#" class="btn2">
+                        <span>
+                            <i class='bx bx-play-circle'></i>
+                        </span> &nbsp; Xem Ngay</a>
                 </div>
             </div>
-            <div class="products-and-email">
-                <div class="product-picture">
-                    <img src="https://res.cloudinary.com/dkylojnfz/image/upload/dnahealth/product_email.svg"
-                         alt="">
-                </div>
-                <div class="email-register">
-                    <h1>NHẬN VOUCHER</h1>
-                    <h2>Đăng Ký Email</h2>
-                    <p>Bằng cách để lại địa chỉ Email của mình, bạn sẽ luôn nhận được những thông tin chính xác và mới
-                        nhất về các khuyến mãi từ DNAHealth</p>
-                    <form action="" method="post">
-                        <input type="text" placeholder="Nhập email của bạn">
-                        <input type="submit" value="ĐĂNG KÝ">
-                    </form>
-                </div>
+            <div class="home-img">
+                <img src="images/banner/milk-banner.png" alt="">
             </div>
-            <div class="products">
-                <div class="title">
-                    <h2>SẢN PHẨM NỔI BẬT</h2>
-                </div>
-                <div class="slide-pic">
-                    <div class="swiper">
-                        <!-- Additional required wrapper -->
-                        <div class="swiper-wrapper">
-                            <!-- Slides -->
-                            <th:block th:each="p: ${LIST_PRODUCT}">
-                            <div class="swiper-slide">
-                                <div class="card">
-                                    <div class="thumbnail">
-                                        <img th:src="|https://res.cloudinary.com/dkylojnfz/image/upload/dnahealth/products/${p.category.categoryCode}/${p.productCode}/thumbnail/thumbnail.svg|" alt=""/>
-                                    </div>
-                                    <div class="price">
-                                        <h3 class="product-name" th:text="${p.name}"></h3>
-                                        <p th:text="${#numbers.formatDecimal(p.price, 0, 'POINT', 0, 'POINT')} + 'đ'"></p>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <div>
-                                            <a th:href="@{/chi-tiet-san-pham(id=${p.id})}">XEM CHI TIẾT</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            </th:block>
-                        </div>
-                        <!-- If we need navigation buttons -->
-                        <div class="swiper-button-prev"></div>
-                        <div class="swiper-button-next"></div>
-<!--                        &lt;!&ndash; If we need navigation buttons &ndash;&gt;-->
-<!--                        <div class="swiper-pagination"></div>-->
-                    </div>
-                </div>
+        </section>
+
+        <!-- categories -->
+        <section class="categories" id="categories">
+            <div class="center-text">
+                <strong>Những Bài Viết Chuyên Sâu</strong>
+                <h2>Chuyện Sức Khoẻ</h2>
             </div>
-            <div class="products">
-                <div class="title">
-                    <h2>CHUYỆN SỨC KHOẺ</h2>
-                </div>
+            <div class="categories-content">
+                <!--            <div class="box">-->
+                <!--                <div class="box-img">-->
+                <!--                    <img src="images/canxi.svg" alt="">-->
+                <!--                </div>-->
+                <!--                <h3>90% canxi đưa vào cơ thể sẽ bị đào thải ra ngoài!</h3>-->
+                <!--                <p>Find your favourite meal, eat what you love and save your time. Eat what you love and save your time.-->
+                <!--                </p>-->
+                <!--            </div>-->
+                <!--            <div class="box">-->
+                <!--                <div class="box-img">-->
+                <!--                    <img src="images/milk.svg" alt="">-->
+                <!--                </div>-->
+                <!--                <h3>Sự thật không như mơ về việc cung cấp Canxi từ sữa bột</h3>-->
+                <!--                <p>Find your favourite meal, eat what you love and save your time. Eat what you love and save your time.-->
+                <!--                </p>-->
+                <!--            </div>-->
+                <!--            <div class="box">-->
+                <!--                <div class="box-img">-->
+                <!--                    <img src="images/canxi.svg" alt="">-->
+                <!--                </div>-->
+                <!--                <h3>90% canxi đưa vào cơ thể sẽ bị đào thải ra ngoài!</h3>-->
+                <!--                <p>Find your favourite meal, eat what you love and save your time. Eat what you love and save your time.-->
+                <!--                </p>-->
+                <!--            </div>-->
+                <!--            <div class="box">-->
+                <!--                <div class="box-img">-->
+                <!--                    <img src="images/milk.svg" alt="">-->
+                <!--                </div>-->
+                <!--                <h3>Sự thật không như mơ về việc cung cấp Canxi từ sữa bột</h3>-->
+                <!--                <p>Find your favourite meal, eat what you love and save your time. Eat what you love and save your time.-->
+                <!--                </p>-->
+                <!--            </div>-->
                 <p style="text-align: center; font-size: 48px;
-                          font-weight: 900; color: #fafafa;
+                          font-weight: 700; color: #fafafa;
                           padding: 30px 30px 120px 30px;">CHƯA CÓ BÀI VIẾT NÀO ĐỂ HIỂN THỊ</p>
             </div>
-        </div>
+        </section>
+
+        <!-- history -->
+        <section class="history" id="history">
+            <div class="history-img">
+                <img src="images/vkaizen.svg" alt="">
+            </div>
+            <div class="history-text">
+                <strong>Sản Phẩm Từ VKAIZEN</strong>
+                <h2>Cải tiến liên tục vì sức khỏe người Việt</h2>
+                <p>Sức khỏe là tài sản quý giá nhất của con người, là khởi đầu cho hành trình chinh phục cuộc sống tốt đẹp. Chính vì điều đó Vkaizen đề ra sứ mệnh của mình là tạo ra và liên tục cải tiến để mang đến những sản phẩm tốt nhất cho sức khỏe.</p>
+                <a href="#" class="btn">Khám Phá</a>
+            </div>
+        </section>
+
+        <!-- menu -->
+        <section class="menu" id="menu">
+            <div class="center-text">
+                <strong>Các Sản Phẩm Nổi Bật Của DNAHEALTH</strong>
+                <h2>Sản Phẩm Nổi Bật</h2>
+            </div>
+            <div class="menu-content">
+                <th:block th:each="p: ${LIST_PRODUCT}">
+                    <div class="row">
+                        <a th:href="@{/chi-tiet-san-pham(id=${p.id})}" class="row-img">
+                            <img th:src="|https://res.cloudinary.com/dkylojnfz/image/upload/dnahealth/products/${p.category.categoryCode}/${p.productCode}/thumbnail/thumbnail.svg|" alt="Sữa Loãng Xương + Cho Người Tiểu Đường">
+                        </a>
+                        <h5 th:text="${p.name}"></h5>
+                        <h6 th:text="${#numbers.formatDecimal(p.price, 0, 'POINT', 0, 'POINT')} + 'đ'"></h6>
+                        <div class="ratings">
+                            <a href="#"><i class="bx bxs-star"></i></a>
+                            <a href="#"><i class="bx bxs-star"></i></a>
+                            <a href="#"><i class="bx bxs-star"></i></a>
+                            <a href="#"><i class="bx bxs-star"></i></a>
+                            <a href="#"><i class="bx bxs-star"></i></a>
+                        </div>
+                    </div>
+                </th:block>
+            </div>
+            <div class="menu-btnn">
+                <a th:href="@{/san-pham}" class="btn">Xem Tất Cả</a>
+            </div>
+        </section>
+
+        <!-- testimonial -->
+        <section class="testimonial" id="testimonial">
+            <div class="testimonial-left">
+                <strong>Phản Hồi Của Khách Hàng</strong>
+                <h2>Khách Hàng <br> Cảm Nhận Gì Về Sản Phẩm</h2>
+            </div>
+            <div class="testimonial-right">
+                <div class="testimonial-img">
+                    <img src="images/avatar.svg" alt="">
+                </div>
+                <h4>Dương Dũng</h4>
+                <h6>Hà Nội, Việt Nam</h6>
+                <p>"Sản phẩm vượt ngoài mong đợi. Trước đây tôi thường xuyên bị đau nhức vùng cổ vai, gai đốt sống do làm việc sai tế thế trong thời gian dài. Sau hơn 1 tháng sử dụng sữa Papamilk Gold, bây giờ tôi cảm thấy rất thoải mái."</p>
+            </div>
+        </section>
     </main>
     <div th:replace="fragments/footer :: footer-body"></div>
-</div>
-<script src="node_modules/swiper/swiper-bundle.min.js"></script>
-<script src="js/swiper_js.js"></script>
-<script src="js/modernizr.js"></script>
-<script src="js/jquery-2.1.1.js"></script>
-<script src="js/jquery.menu-aim.js"></script>
-<script src="js/main.js"></script>
-<script>
-    $( document ).ready(function() {
-        $('.home-tab').addClass('active');
-    });
-</script>
+
+    <!-- js file link -->
+    <script src="js/script.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('.home-tab').addClass('active');
+        });
+    </script>
 </body>
+
 </html>
