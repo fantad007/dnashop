@@ -110,6 +110,7 @@
     width: 35px;
     border: none;
     border-bottom: 1px solid var(--other-color);
+    border-radius: 0;
     text-align: right;
     background-color: transparent;
     color: var(--text-color);
