@@ -100,8 +100,7 @@
 }
 
 .cart .order .order-info .order-detail .detail-info .price .product-quantity label {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
+    font-weight: 400;
     margin-right: 7px;
 }
 
@@ -109,7 +108,7 @@
     outline: none;
     width: 35px;
     border: none;
-    border-bottom: 1px solid var(--other-color);
+    border-bottom: 1.5px solid var(--other-color);
     border-radius: 0;
     text-align: right;
     background-color: transparent;
