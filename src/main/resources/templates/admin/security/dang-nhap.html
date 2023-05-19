@@ -5,52 +5,65 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
-  <title>DNAHEALTH - ĐĂNG NHẬP</title>
-  <link rel="stylesheet" href="font-awesome-pro-master/css/all.css">
-  <link rel="icon" href="https://res.cloudinary.com/dkylojnfz/image/upload/v1682956051/dnahealth/logo/logo.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="font-awesome-pro-master/css/all.css">
-  <link rel="stylesheet" href="css/main/login-form/login-form.css">
-  <link rel="stylesheet" href="css/main/main.css">
-  <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <title>DNAHEALTH - ĐĂNG NHẬP</title>
+    <link rel="icon" href="images/logo/logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="font-awesome-pro-master/css/all.css">
+    <!-- css -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/main/dang-nhap/dang-nhap.css">
+    <!-- box icons link -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 </head>
 <body>
-<div id="wrapper">
-  <main id="main">
-    <div class="login-form">
-      <div class="form-title">
-        <p th:if="${hasError}" class="error" style="margin: 0 0 20px 0; color: #a5dc86" th:text="${messageError}"></p>
-        <h1>Đăng nhập</h1>
-        <p>Đăng nhập và bắt đầu quản lý hệ thống của bạn</p>
-      </div>
-      <form th:action="@{/form_login}" method="post">
-        <div>
-          <input class="info-input" id="emailTxt" name="username" type="text" placeholder="Email">
+<div th:replace="fragments/header :: header-body" th:remove="tag"></div>
+<main>
+    <div class="wrapper">
+            <span class="icon-close">
+                <ion-icon name="close"></ion-icon>
+            </span>
+        <div class="form-box login">
+            <p th:if="${hasError}" class="error" style="margin: 0 0 20px 0; color: #a5dc86"
+               th:text="${messageError}"></p>
+            <h2>Đăng nhập</h2>
+            <form th:action="@{/form_login}" method="post">
+                <div class="input-box">
+                        <span class="icon">
+                            <ion-icon name="mail"></ion-icon>
+                        </span>
+                    <input type="email" name="username" required>
+                    <label>Email</label>
+                </div>
+                <div class="input-box">
+                        <span class="icon">
+                            <ion-icon name="lock-closed"></ion-icon>
+                        </span>
+                    <input type="password" name="password" required>
+                    <label>Mật khẩu</label>
+                </div>
+                <div class="remember-forgot">
+                    <label>
+                        <input type="checkbox"> Lưu
+                    </label>
+                    <a href="#">Quên mật khẩu?</a>
+                </div>
+                <button type="submit" class="btn">Đăng nhập</button>
+                <div class="login-register">
+                    <p>Bạn chưa có tài khoản?
+                        <a href="#" class="register">Đăng ký</a>
+                    </p>
+                </div>
+            </form>
         </div>
-        <div>
-          <input class="info-input" id="passwordTxt" name="password" type="password" placeholder="Mật khẩu">
-        </div>
-        <div class="work-with-pass">
-          <div>
-            <input class="checkbox-input" id="remember" name="remember" type="checkbox">
-            <label for="remember" style="color: #fff">Lưu mật khẩu</label>
-          </div>
-          <div>
-            <a href="">Quên mật khẩu?</a>
-          </div>
-        </div>
-        <div>
-          <input class="btn-input" th:type="submit" value="Đăng nhập">
-        </div>
-      </form>
-      <div class="bottom-img">
-        <img class="vector-img" src="images/vectors-dark.svg" alt="">
-      </div>
     </div>
-  </main>
-</div>
+</main>
+
+<!-- js file link -->
+<script src="js/script.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

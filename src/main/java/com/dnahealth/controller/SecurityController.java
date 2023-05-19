@@ -2,6 +2,7 @@ package com.dnahealth.controller;
 
 import com.dnahealth.entity.AdminEntity;
 import com.dnahealth.service.AdminService;
+import com.dnahealth.service.ShoppingCartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
@@ -16,9 +17,12 @@ import javax.servlet.http.HttpServletRequest;
 public class SecurityController {
     @Autowired
     AdminService adminService;
+    @Autowired
+    ShoppingCartService cartService;
 
     @GetMapping(value = "/dang-nhap")
     public String loginPage(Model model) {
+        model.addAttribute("TOTAL_QUANTITIES", cartService.getTotalQuantities());
         return "admin/security/dang-nhap";
     }
 
@@ -26,6 +30,7 @@ public class SecurityController {
     public String loginError(Model model) {
         model.addAttribute("hasError", true);
         model.addAttribute("messageError", "Email hoặc mật khẩu không chính xác");
+        model.addAttribute("TOTAL_QUANTITIES", cartService.getTotalQuantities());
         return "admin/security/dang-nhap";
     }
 
