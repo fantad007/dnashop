@@ -42,6 +42,7 @@ public class SecurityController {
     @GetMapping("/dang-ky")
     public String registerEmployee(Model model) {
         model.addAttribute("adminRegister", new AdminEntity());
+        model.addAttribute("TOTAL_QUANTITIES", cartService.getTotalQuantities());
         return "admin/security/dang-ky";
     }
 

@@ -1,4 +1,5 @@
 main {
+    padding: 60px 10px 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,7 +28,7 @@ main {
     padding: 40px;
 }
 
-.wrapper .icon-close {
+.wrapper .icon-finger {
     position: absolute;
     top: 0;
     right: 0;
