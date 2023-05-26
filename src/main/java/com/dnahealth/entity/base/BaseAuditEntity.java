@@ -8,14 +8,13 @@ import org.hibernate.annotations.UpdateTimestamp;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
-import java.io.Serializable;
 import java.time.Instant;
 import java.util.Objects;
 
 @Getter
 @Setter
 @MappedSuperclass
-public class BaseAuditEntity extends BaseEntity implements Serializable {
+public class BaseAuditEntity extends BaseEntity {
     private String createdBy;
     @CreationTimestamp
     private Instant createdAt;

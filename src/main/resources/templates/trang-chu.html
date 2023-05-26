@@ -46,41 +46,22 @@
                 <h2>Chuyện Sức Khoẻ</h2>
             </div>
             <div class="categories-content">
-                <!--            <div class="box">-->
-                <!--                <div class="box-img">-->
-                <!--                    <img src="images/canxi.svg" alt="">-->
-                <!--                </div>-->
-                <!--                <h3>90% canxi đưa vào cơ thể sẽ bị đào thải ra ngoài!</h3>-->
-                <!--                <p>Find your favourite meal, eat what you love and save your time. Eat what you love and save your time.-->
-                <!--                </p>-->
-                <!--            </div>-->
-                <!--            <div class="box">-->
-                <!--                <div class="box-img">-->
-                <!--                    <img src="images/milk.svg" alt="">-->
-                <!--                </div>-->
-                <!--                <h3>Sự thật không như mơ về việc cung cấp Canxi từ sữa bột</h3>-->
-                <!--                <p>Find your favourite meal, eat what you love and save your time. Eat what you love and save your time.-->
-                <!--                </p>-->
-                <!--            </div>-->
-                <!--            <div class="box">-->
-                <!--                <div class="box-img">-->
-                <!--                    <img src="images/canxi.svg" alt="">-->
-                <!--                </div>-->
-                <!--                <h3>90% canxi đưa vào cơ thể sẽ bị đào thải ra ngoài!</h3>-->
-                <!--                <p>Find your favourite meal, eat what you love and save your time. Eat what you love and save your time.-->
-                <!--                </p>-->
-                <!--            </div>-->
-                <!--            <div class="box">-->
-                <!--                <div class="box-img">-->
-                <!--                    <img src="images/milk.svg" alt="">-->
-                <!--                </div>-->
-                <!--                <h3>Sự thật không như mơ về việc cung cấp Canxi từ sữa bột</h3>-->
-                <!--                <p>Find your favourite meal, eat what you love and save your time. Eat what you love and save your time.-->
-                <!--                </p>-->
-                <!--            </div>-->
-                <p style="text-align: center; font-size: 48px;
+                <th:block th:if="${LIST_BLOG.size() == 0}">
+                    <p style="text-align: center; font-size: 48px;
                           font-weight: 700; color: #fafafa;
                           padding: 30px 30px 120px 30px;">CHƯA CÓ BÀI VIẾT NÀO ĐỂ HIỂN THỊ</p>
+                </th:block>
+                <th:block th:if="${LIST_BLOG.size() != 0}">
+                    <th:block th:each="b: ${LIST_BLOG}">
+                        <div class="box">
+                            <a th:href="@{/chi-tiet-bai-viet(id=${b.id})}" class="box-img">
+                                <img th:src="|https://res.cloudinary.com/dkylojnfz/image/upload/dnahealth/blogs/${b.id}/thumbnail/thumbnail.svg|" alt="">
+                            </a>
+                            <h3 th:text="${b.title}"></h3>
+                            <p th:text="${b.shortDesc}"></p>
+                        </div>
+                    </th:block>
+                </th:block>
             </div>
         </section>
 

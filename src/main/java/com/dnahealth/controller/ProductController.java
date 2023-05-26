@@ -26,7 +26,7 @@ public class ProductController {
     @GetMapping("/chi-tiet-san-pham")
     public String viewProductDetail(Model model,
                                     @RequestParam("id") String id) {
-        String title = "DNA - 404";
+        String title = "DNAHEALTH - 404";
         ProductDetailDto productDetailDto = productService.getProductDetailDto(id);
         if (productDetailDto != null) {
             title = "DNAHEALTH - " + productDetailDto.getProductName();

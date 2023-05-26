@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <!--suppress ALL -->
-<html lang="en"
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,119 +16,116 @@
     <!-- box icons link -->
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 </head>
+
 <body>
-<div th:replace="fragments/header :: header-body"></div>
-<!--main-->
-<main>
-    <!--product-detail-->
-    <section class="product-detail" style="margin-top: 9%;">
-        <div class="card-wrapper">
-            <div class="card">
-                <!-- card left -->
-                <div class="product-imgs">
-                    <div class="img-display">
-                        <div class="img-showcase">
+    <div th:replace="fragments/header :: header-body"></div>
+    <!--main-->
+    <main>
+        <!--product-detail-->
+        <section class="product-detail" style="margin-top: 9%;">
+            <div class="card-wrapper">
+                <div class="card">
+                    <!-- card left -->
+                    <div class="product-imgs">
+                        <div class="img-display">
+                            <div class="img-showcase">
+                                <th:block th:each="i: ${#numbers.sequence(1, 5)}">
+                                    <img th:src="|https://res.cloudinary.com/dkylojnfz/image/upload/dnahealth/products/${productDetail.category.categoryCode}/${productDetail.productCode}/slide-card/img-${i}.svg|" alt="">
+                                </th:block>
+                            </div>
+                        </div>
+                        <div class="img-select">
                             <th:block th:each="i: ${#numbers.sequence(1, 5)}">
-                                <img th:src="|https://res.cloudinary.com/dkylojnfz/image/upload/dnahealth/products/${productDetail.category.categoryCode}/${productDetail.productCode}/slide-card/img-${i}.svg|"
-                                     alt="">
+                                <div class="img-item">
+                                    <a href="#" th:attr="data-id=${i}">
+                                        <img th:src="|https://res.cloudinary.com/dkylojnfz/image/upload/dnahealth/products/${productDetail.category.categoryCode}/${productDetail.productCode}/slide-card/img-${i}.svg|" alt="">
+                                    </a>
+                                </div>
                             </th:block>
                         </div>
                     </div>
-                    <div class="img-select">
-                        <th:block th:each="i: ${#numbers.sequence(1, 5)}">
-                            <div class="img-item">
-                                <a href="#" th:attr="data-id=${i}">
-                                    <img th:src="|https://res.cloudinary.com/dkylojnfz/image/upload/dnahealth/products/${productDetail.category.categoryCode}/${productDetail.productCode}/slide-card/img-${i}.svg|"
-                                         alt="">
-                                </a>
-                            </div>
-                        </th:block>
-                    </div>
-                </div>
-                <!-- card right -->
-                <div class="product-content">
-                    <h2 class="product-title" th:text="${productDetail.productName}"></h2>
-                    <p id="productId" th:text="${productDetail.id}" style="display:none"></p>
-                    <div class="product-rating">
-                        <i class="bx bxs-star"></i>
-                        <i class="bx bxs-star"></i>
-                        <i class="bx bxs-star"></i>
-                        <i class="bx bxs-star"></i>
-                        <i class="bx bxs-star"></i>
-                    </div>
-                    <div class="product-price">
-                        <p class="last-price">Giá gốc: <span
-                                th:text="${#numbers.formatDecimal(productDetail.price * 0.05 + productDetail.price, 0, 'COMMA', 0, 'POINT')} + 'đ'"></span>
-                        </p>
-                        <p class="new-price">Giá hiện tại: <span
-                                th:text="${#numbers.formatDecimal(productDetail.price, 0, 'POINT', 0, 'POINT')} + 'đ'"></span><span> (5%)</span>
-                        </p>
-                    </div>
-                    <div class="product-detail">
-                        <h2>mô tả sản phẩm: </h2>
-                        <p th:text="${productDetail.shortDesc}"></p>
-                        <ul>
-                            <li>TÌNH TRẠNG: <span>còn hàng</span></li>
-                            <li>DANH MỤC: <span th:text="${productDetail.category.name}"></span></li>
-                            <li>THƯƠNG HIỆU: <span th:text="${productDetail.trademark}"></span></li>
-                            <li>KHU VỰC GIAO HÀNG: <span>Việt Nam</span></li>
-                            <li><span>Free ship cho đơn hàng từ 800.000đ</span></li>
-                        </ul>
-                    </div>
-                    <div class="purchase-info">
-                        <!--<input type="number" min="0" value="1">-->
-                        <div class="btn">
-                            <a id="add-to-cart" th:href="@{|/gio-hang/them/${productDetail.id}|}">Mua ngay</a> <i class="fas fa-shopping-cart"></i>
+                    <!-- card right -->
+                    <div class="product-content">
+                        <h2 class="product-title" th:text="${productDetail.productName}"></h2>
+                        <p id="productId" th:text="${productDetail.id}" style="display:none"></p>
+                        <div class="product-rating">
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
                         </div>
-                    </div>
-                    <div class="social-links">
-                        <p>Chia Sẻ: </p> &nbsp;&nbsp;
-                        <a href="#">
-                            <i class="bx bxl-facebook-square"></i>
-                        </a>
-                        <a href="#">
-                            <i class="bx bxl-instagram-alt"></i>
-                        </a>
-                        <a href="#">
-                            <i class='bx bxl-twitter'></i>
-                        </a>
+                        <div class="product-price">
+                            <p class="last-price">Giá gốc: <span th:text="${#numbers.formatDecimal(productDetail.price * 0.05 + productDetail.price, 0, 'COMMA', 0, 'POINT')} + 'đ'"></span>
+                            </p>
+                            <p class="new-price">Giá hiện tại: <span th:text="${#numbers.formatDecimal(productDetail.price, 0, 'POINT', 0, 'POINT')} + 'đ'"></span><span> (5%)</span>
+                            </p>
+                        </div>
+                        <div class="product-detail">
+                            <h2>mô tả sản phẩm: </h2>
+                            <p th:text="${productDetail.shortDesc}"></p>
+                            <ul>
+                                <li>TÌNH TRẠNG: <span>còn hàng</span></li>
+                                <li>DANH MỤC: <span th:text="${productDetail.category.name}"></span></li>
+                                <li>THƯƠNG HIỆU: <span th:text="${productDetail.trademark}"></span></li>
+                                <li>KHU VỰC GIAO HÀNG: <span>Việt Nam</span></li>
+                                <li><span>Free ship cho đơn hàng từ 800.000đ</span></li>
+                            </ul>
+                        </div>
+                        <div class="purchase-info">
+                            <!--<input type="number" min="0" value="1">-->
+                            <div class="btn">
+                                <a id="add-to-cart" th:href="@{|/gio-hang/them/${productDetail.id}|}">Mua ngay</a> <i class="fas fa-shopping-cart"></i>
+                            </div>
+                        </div>
+                        <div class="social-links">
+                            <p>Chia Sẻ: </p> &nbsp;&nbsp;
+                            <a href="#">
+                                <i class="bx bxl-facebook-square"></i>
+                            </a>
+                            <a href="#">
+                                <i class="bx bxl-instagram-alt"></i>
+                            </a>
+                            <a href="#">
+                                <i class='bx bxl-twitter'></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- menu -->
-    <section class="menu" id="menu">
-        <div class="center-text">
-            <strong>Các Sản Phẩm Bạn Có Thể Quan Tâm</strong>
-            <h2>Sản Phẩm Cùng Loại</h2>
-        </div>
-        <div class="menu-content">
-            <th:block th:each="p: ${LIST_PRODUCT}">
-                <div class="row">
-                    <a th:href="@{/chi-tiet-san-pham(id=${p.id})}" class="row-img">
-                        <img th:src="|https://res.cloudinary.com/dkylojnfz/image/upload/dnahealth/products/${p.category.categoryCode}/${p.productCode}/thumbnail/thumbnail.svg|"
-                             alt="Sữa Loãng Xương + Cho Người Tiểu Đường">
-                    </a>
-                    <h5 th:text="${p.name}"></h5>
-                    <h6 th:text="${#numbers.formatDecimal(p.price, 0, 'POINT', 0, 'POINT')} + 'đ'"></h6>
-                    <div class="ratings">
-                        <a href="#"><i class="bx bxs-star"></i></a>
-                        <a href="#"><i class="bx bxs-star"></i></a>
-                        <a href="#"><i class="bx bxs-star"></i></a>
-                        <a href="#"><i class="bx bxs-star"></i></a>
-                        <a href="#"><i class="bx bxs-star"></i></a>
+        <!-- menu -->
+        <section class="menu" id="menu">
+            <div class="center-text">
+                <strong>Các Sản Phẩm Bạn Có Thể Quan Tâm</strong>
+                <h2>Sản Phẩm Cùng Loại</h2>
+            </div>
+            <div class="menu-content">
+                <th:block th:each="p: ${LIST_PRODUCT}">
+                    <div class="row">
+                        <a th:href="@{/chi-tiet-san-pham(id=${p.id})}" class="row-img">
+                            <img th:src="|https://res.cloudinary.com/dkylojnfz/image/upload/dnahealth/products/${p.category.categoryCode}/${p.productCode}/thumbnail/thumbnail.svg|" alt="Sữa Loãng Xương + Cho Người Tiểu Đường">
+                        </a>
+                        <h5 th:text="${p.name}"></h5>
+                        <h6 th:text="${#numbers.formatDecimal(p.price, 0, 'POINT', 0, 'POINT')} + 'đ'"></h6>
+                        <div class="ratings">
+                            <a href="#"><i class="bx bxs-star"></i></a>
+                            <a href="#"><i class="bx bxs-star"></i></a>
+                            <a href="#"><i class="bx bxs-star"></i></a>
+                            <a href="#"><i class="bx bxs-star"></i></a>
+                            <a href="#"><i class="bx bxs-star"></i></a>
+                        </div>
                     </div>
-                </div>
-            </th:block>
-        </div>
-    </section>
-</main>
-<div th:replace="fragments/footer :: footer-body"></div>
+                </th:block>
+            </div>
+        </section>
+    </main>
+    <div th:replace="fragments/footer :: footer-body"></div>
 
-<!-- js file link -->
-<script src="js/script.js"></script>
-<script src="js/chi-tiet-san-pham-js/script.js"></script>
+    <!-- js file link -->
+    <script src="js/script.js"></script>
+    <script src="js/chi-tiet-san-pham-js/script.js"></script>
 </body>
+
 </html>

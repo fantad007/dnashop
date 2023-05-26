@@ -1,0 +1,29 @@
+.blog-detail {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.blog-detail .title {
+    margin-bottom: 2rem;
+}
+
+.blog-detail .title h1 {
+    font-size: var(--big-font);
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 2rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.blog-detail .title h2 {
+    margin-bottom: 2rem;
+}
+
+.blog-detail .title .blog-pic {
+    width: 100%;
+}
+
+.blog-detail .title .blog-pic img {
+    width: 100%;
+}

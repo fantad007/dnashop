@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <title>DNAHEALTH - CHI TIẾT BÀI VIẾT</title>
+    <link rel="icon" href="images/logo/logo.svg" type="image/svg+xml">
+    <!-- css -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/main/trang-chu/trang-chu.css">
+    <link rel="stylesheet" href="css/main/chi-tiet-bai-viet/chi-tiet-bai-viet.css">
+    <!-- box icons link -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+</head>
+
+<body>
+    <div th:replace="fragments/header :: header-body"></div>
+    <!--main-->
+    <main>
+        <!--blog-detail-->
+        <section class="blog-detail" style="margin-top: 9%;">
+            <th:block th:utext="${blogDetail.fullDesc}"></th:block>
+        </section>
+
+        <!-- categories -->
+        <section class="categories" id="categories">
+            <div class="center-text">
+                <strong>Những Bài Viết Chuyên Sâu</strong>
+                <h2>Chuyện Sức Khoẻ</h2>
+            </div>
+            <div class="categories-content">
+                <th:block th:each="b: ${LIST_BLOG}">
+                    <div class="box">
+                        <a th:href="@{/chi-tiet-bai-viet(id=${b.id})}" class="box-img">
+                            <img th:src="|https://res.cloudinary.com/dkylojnfz/image/upload/dnahealth/blogs/${b.id}/thumbnail/thumbnail.svg|" alt="">
+                        </a>
+                        <h3 th:text="${b.title}"></h3>
+                        <p th:text="${b.shortDesc}"></p>
+                    </div>
+                </th:block>
+            </div>
+        </section>
+    </main>
+    <div th:replace="fragments/footer :: footer-body"></div>
+
+    <!-- js file link -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>
