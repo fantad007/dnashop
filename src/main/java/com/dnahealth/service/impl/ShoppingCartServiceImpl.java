@@ -76,7 +76,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
     @Override
     public OrderEntity getOrder() {
         orderEntity.setOrderDetails(getAllCartItems());
-        orderEntity.setTotalMoney(getAmount());
+        orderEntity.setTotalMoney(getAmount() + getAmount()*0.1);
         return orderEntity;
     }
 

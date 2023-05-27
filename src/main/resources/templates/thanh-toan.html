@@ -23,6 +23,16 @@
     <!-- main -->
     <main>
         <section class="cart" style="margin-top: 9%;">
+            <th:block th:if="${TOTAL_QUANTITIES == 0}">
+                <style>
+                    .cart {
+                        flex-direction: column;
+                    }
+                </style>
+                <div class="unpay">
+                    <p>Giỏ hàng của bạn đang trống! Hãy thêm sản phẩm vào giỏ hàng để thực hiện chức năng thanh toán</p>
+                </div>
+            </th:block>
             <div class="order">
                 <div class="customer">
                     <div class="free-ship">
@@ -33,16 +43,16 @@
                     <div>
                         <form th:action="@{/process_customer_information}" method="post" th:object="${information}">
                             <div class="info-fill">
-                                <input class="info-input" th:field="*{name}" type="text" placeholder="Tên của bạn">
+                                <input class="info-input" th:field="*{name}" type="text" placeholder="Tên của bạn" required>
                             </div>
                             <div class="info-fill">
-                                <input class="info-input" th:field="*{phone}" type="text" placeholder="Số điện thoại">
+                                <input class="info-input" th:field="*{phone}" type="text" placeholder="Số điện thoại" required>
                             </div>
                             <div class="info-fill">
-                                <input class="info-input" th:field="*{email}" type="text" placeholder="Email">
+                                <input class="info-input" th:field="*{email}" type="text" placeholder="Email" required>
                             </div>
                             <div class="info-fill">
-                                <input class="info-input" th:field="*{address}" type="text" placeholder="Địa chỉ">
+                                <input class="info-input" th:field="*{address}" type="text" placeholder="Địa chỉ" required>
                             </div>
                             <div class="info-fill">
                                 <input class="info-input" th:field="*{note}" type="text" placeholder="Ghi chú tuỳ chọn">

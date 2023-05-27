@@ -29,7 +29,8 @@ public class PayController {
                                              @ModelAttribute("information") Customer information) {
         boolean save = service.saveCart(information);
         if (save) {
-            return "redirect:/gio-hang";
+            model.addAttribute("TOTAL_QUANTITIES", service.getTotalQuantities());
+            return "thanh-toan-thanh-cong";
         } else {
             return "404";
         }

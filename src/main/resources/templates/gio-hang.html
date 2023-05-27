@@ -72,10 +72,16 @@
                     <p th:text="${#numbers.formatDecimal(TOTAL, 0, 'POINT', 0, 'POINT')} + 'đ'"></p>
                 </div>
             </div>
+            <div class="subtotal">
+                <div>
+                    <p>VAT</p>
+                    <p>10%</p>
+                </div>
+            </div>
             <div class="total">
                 <div>
                     <p>TỔNG TIỀN</p>
-                    <p th:text="${#numbers.formatDecimal(TOTAL, 0, 'POINT', 0, 'POINT')} + 'đ'"></p>
+                    <p th:text="${#numbers.formatDecimal((TOTAL + TOTAL*0.1), 0, 'POINT', 0, 'POINT')} + 'đ'"></p>
                 </div>
             </div>
             <div class="checkout">
