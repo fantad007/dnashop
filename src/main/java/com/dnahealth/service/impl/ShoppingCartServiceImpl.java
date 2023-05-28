@@ -8,17 +8,20 @@ import com.dnahealth.repository.CustomerRepository;
 import com.dnahealth.repository.OrderDetailRepository;
 import com.dnahealth.repository.OrderRepository;
 import com.dnahealth.service.ShoppingCartService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.annotation.SessionScope;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import javax.mail.internet.MimeMessage;
+import java.util.*;
 
 @SessionScope
 @Service
+@Slf4j
 public class ShoppingCartServiceImpl implements ShoppingCartService {
     @Autowired
     CustomerRepository customerRepository;
@@ -26,6 +29,10 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
     OrderRepository orderRepository;
     @Autowired
     OrderDetailRepository orderDetailRepository;
+    @Autowired
+    JavaMailSender mailSender;
+    @Value("${spring.mail.username}")
+    String fromEmailAddress;
     Map<Long, OrderDetailEntity> map = new HashMap<>();
     OrderEntity orderEntity = new OrderEntity();
 
@@ -105,10 +112,37 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
                 orderDetail.setOrder(orderEntity);
                 orderDetailRepository.save(orderDetail);
             }
+            sendEmailConfirmOrder(information);
             clear();
             return true;
         } catch (Exception e) {
             return false;
+        }
+    }
+
+    @Override
+    public void sendEmailConfirmOrder(Customer customer) {
+        try {
+            MimeMessage message = mailSender.createMimeMessage();
+            MimeMessageHelper helper = new MimeMessageHelper(message);
+            String subject = "DNAHEALTH - BẠN ĐÃ ĐẶT HÀNG THÀNH CÔNG";
+            String content = "<div>\n" +
+                    "        Xin chào <strong>[[name]]</strong>,\n" +
+                    "        <br> Chúc mừng bạn đã đặt hàng thành công sản phẩm của DNAHEALTH " +
+                    "        <br> Đơn hàng của bạn sẽ được chúng tôi xử lý và giao tận tay bạn sớm nhất\n" +
+                    "        <br> Chúc bạn có một ngày thật nhiều năng lượng và niềm vui!\n" +
+                    "        Xin cảm ơn,\n" +
+                    "        <br> -- DNAHEALTH --\n" +
+                    "    </div>";
+            helper.setFrom(fromEmailAddress);
+            helper.setTo(customer.getEmail());
+            helper.setSubject(subject);
+            content = content.replace("[[name]]", customer.getName());
+            helper.setText("<html><body>" + content + "</html></body>", true);
+            mailSender.send(message);
+            log.info("Gửi Mail Thành Công...");
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

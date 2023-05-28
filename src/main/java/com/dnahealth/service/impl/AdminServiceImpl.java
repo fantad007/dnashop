@@ -85,7 +85,7 @@ public class AdminServiceImpl implements AdminService {
         try {
             MimeMessage message = mailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(message);
-            String subject = "VUI LÒNG XÁC MINH ĐĂNG KÝ CỦA BẠN";
+            String subject = "DNAHEALTH - VUI LÒNG XÁC MINH ĐĂNG KÝ CỦA BẠN";
             String content = "<div>\n" +
                     "        Xin chào <strong>[[name]]</strong>,\n" +
                     "        <br> Cảm ơn bạn đã đăng ký để trở thành Quản Trị Viên hệ thống của DNAHEALTH. " +

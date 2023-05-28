@@ -17,4 +17,5 @@ public interface ShoppingCartService {
     OrderEntity getOrder();
     int getTotalQuantities();
     boolean saveCart(Customer information);
+    void sendEmailConfirmOrder(Customer customer);
 }
