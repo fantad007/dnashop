@@ -5,6 +5,7 @@
 <body>
 <header th:fragment="header-body">
     <link rel="stylesheet" href="css/header/header.css">
+    <link rel="stylesheet" href="css/header/search.css">
     <a th:href="@{/}" class="logo">
         <img src="images/logo/logo.svg" alt="">
     </a>
@@ -16,8 +17,6 @@
         <li><a href="#" class="contact-tab">Liên Hệ</a></li>
     </ul>
     <div class="header-icons">
-        <a href=""><i class="bx bx-search-alt-2"></i></a>
-        <a href=""><i class="bx bx-bell"></i></a>
         <th:block th:if="${TOTAL_QUANTITIES != 0}">
             <a th:href="@{/gio-hang}">
                 <i class="bx bx-cart-alt"></i>
@@ -27,12 +26,19 @@
         <th:block th:if="${TOTAL_QUANTITIES == 0}">
             <a th:href="@{/gio-hang}"><i class="bx bx-cart-alt"></i></a>
         </th:block>
+        <!-- dark mode -->
+        <div class="bx bx-moon" id="darkmode"></div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
         <div id="menu-icon" class="bx bx-menu"></div>
+        <form action="#" class="search" id="search-bar">
+            <input type="search" placeholder="Tìm sản phẩm" name="q" class="search__input">
+            <div class="search__button" id="search-button">
+                <i class="bx bx-search-alt-2 search__icon" style="color: #252429;"></i>
+                <i class="bx bxs-x-circle search__close" style="color: #252429;"></i>
+            </div>
+        </form>
     </div>
-
-    <!-- dark mode -->
-    <div class="bx bx-moon" id="darkmode"></div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="js/search.js"></script>
 </header>
 </body>
 </html>
