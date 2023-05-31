@@ -5,47 +5,171 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <style>
-        table {
-          font-family: arial, sans-serif;
-          border-collapse: collapse;
-          width: 100%;
-        }
-
-        td, th {
-          border: 1px solid #dddddd;
-          text-align: left;
-          padding: 8px;
-        }
-
-        tr:nth-child(even) {
-          background-color: #dddddd;
-        }
-    </style>
+    <title>DNAHEALTH - DASHBOARD</title>
+    <!-- css -->
+    <link rel="stylesheet" href="../css/dashboard/dashboard.css">
+    <!-- box icons link -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 </head>
 <body>
-<div>
-    <table>
-        <tr>
-            <th>MÃ ĐƠN HÀNG</th>
-            <th>TÊN KHÁCH HÀNG</th>
-            <th>NGÀY ĐẶT HÀNG</th>
-            <th>TỔNG TIỀN</th>
-            <th>ĐỊA CHỈ NHẬN HÀNG</th>
-            <th>TRẠNG THÁI</th>
-            <th></th>
-        </tr>
-        <tr th:each="o : ${orders}">
-            <td th:text="${o.orderId}"></td>
-            <td th:text="${o.customerName}"></td>
-            <td th:text="${#dates.format(o.createdAt, 'dd-MM-yyyy')}"></td>
-            <td th:text="${#numbers.formatDecimal(o.totalMoney, 0, 'POINT', 0, 'POINT')} + 'đ'"></td>
-            <td th:text="${o.address}"></td>
-            <td th:text="${o.status}"></td>
-            <td><a href="">xem chi tiết</a></td>
-        </tr>
-    </table>
-</div>
+    <section id="sidebar">
+        <ul class="side-menu top">
+            <li class="active">
+                <a href="#">
+                    <i class='bx bxs-dashboard'></i>
+                    <span class="text">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-shopping-bag-alt'></i>
+                    <span class="text">My Store</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-doughnut-chart'></i>
+                    <span class="text">Analytics</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-message-dots'></i>
+                    <span class="text">Message</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-group'></i>
+                    <span class="text">Team</span>
+                </a>
+            </li>
+        </ul>
+        <ul class="side-menu">
+            <li>
+                <a href="#">
+                    <i class='bx bxs-cog'></i>
+                    <span class="text">Settings</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="logout">
+                    <i class='bx bxs-log-out-circle'></i>
+                    <span class="text">Logout</span>
+                </a>
+            </li>
+        </ul>
+    </section>
+    <section id="content">
+        <header style="background-color: var(--light);">
+            <link rel="stylesheet" href="../css/header/header.css">
+            <link rel="stylesheet" href="../css/header/search.css">
+            <a th:href="@{/}" class="logo">
+                <img src="../images/logo/logo.svg" alt="">
+            </a>
+            <ul class="navbar">
+                <li><a th:href="@{/}" class="home-tab">Trang Chủ</a></li>
+                <li><a th:href="@{/san-pham}" class="products-tab">Sản Phẩm</a></li>
+                <li><a href="#" class="blogs-tab">Chuyện Sức Khoẻ</a></li>
+                <li><a href="#" class="about-tab">Về Chúng Tôi</a></li>
+                <li><a href="#" class="contact-tab">Liên Hệ</a></li>
+            </ul>
+            <div class="header-icons">
+                <i class='bx bx-layer' style="font-size: 1.5rem; cursor: pointer;"></i>
+                <a><i class="bx bx-cart-alt"></i></a>
+                <!-- dark mode -->
+                <div class="bx bx-moon" id="darkmode"></div>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+                <div id="menu-icon" class="bx bx-menu"></div>
+                <form action="#" class="search" id="search-bar">
+                    <input type="search" placeholder="Tìm sản phẩm" name="q" class="search__input">
+                    <div class="search__button" id="search-button">
+                        <i class="bx bx-search-alt-2 search__icon" style="color: #252429;"></i>
+                        <i class="bx bxs-x-circle search__close" style="color: #252429;"></i>
+                    </div>
+                </form>
+            </div>
+            <script src="../js/search.js"></script>
+        </header>
+        <main>
+            <div class="head-title">
+                <div class="left">
+                    <h1>Dashboard</h1>
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="#">Dashboard</a>
+                        </li>
+                        <li><i class='bx bx-chevron-right'></i></li>
+                        <li>
+                            <a class="active" href="#">Home</a>
+                        </li>
+                    </ul>
+                </div>
+                <a href="#" class="btn-download">
+                    <i class='bx bxs-cloud-download'></i>
+                    <span class="text">Download PDF</span>
+                </a>
+            </div>
+            <ul class="box-info">
+                <li>
+                    <i class='bx bxs-calendar-check'></i>
+                    <span class="text">
+						<h3>1020</h3>
+						<p>New Order</p>
+					</span>
+                </li>
+                <li>
+                    <i class='bx bxs-group'></i>
+                    <span class="text">
+						<h3>2834</h3>
+						<p>Visitors</p>
+					</span>
+                </li>
+                <li>
+                    <i class='bx bxs-dollar-circle'></i>
+                    <span class="text">
+						<h3>$2543</h3>
+						<p>Total Sales</p>
+					</span>
+                </li>
+            </ul>
+            <div class="table-data">
+                <div class="order">
+                    <div class="head">
+                        <h3>Recent Orders</h3>
+                        <i class='bx bx-search'></i>
+                        <i class='bx bx-filter'></i>
+                    </div>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>MĐH</th>
+                            <th>TÊN KHÁCH HÀNG</th>
+                            <th>NGÀY ĐẶT HÀNG</th>
+                            <th>TỔNG TIỀN</th>
+                            <th>ĐỊA CHỈ</th>
+                            <th>TRẠNG THÁI</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="o : ${orders}">
+                            <td th:text="${o.orderId}"></td>
+                            <td th:text="${o.customerName}"></td>
+                            <td th:text="${#dates.format(o.createdAt, 'dd-MM-yyyy')}"></td>
+                            <td th:text="${#numbers.formatDecimal(o.totalMoney, 0, 'POINT', 0, 'POINT')} + 'đ'"></td>
+                            <td th:text="${o.address}"></td>
+                            <td><span class="status pending" th:text="${o.status}"></span></td>
+                            <td><a href="">xem chi tiết</a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </section>
+    <!-- js file link -->
+    <script src="../js/script.js"></script>
+    <script src="../js/dashboard/script.js"></script>
 </body>
 </html>
