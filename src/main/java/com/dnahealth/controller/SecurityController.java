@@ -62,6 +62,17 @@ public class SecurityController {
         }
     }
 
+    @GetMapping("/quen-mat-khau")
+    public String forgetPassword() {
+        return "admin/security/quen-mat-khau";
+    }
+
+    @PostMapping("/process_forget_password")
+    public String processForgetPassword () {
+        adminService.getNewPasswordWhenForgetOldPassword("dungndm232@gmail.com");
+        return "admin/security/dang-nhap";
+    }
+
     private String getSiteURL(HttpServletRequest request) {
         String siteURL = request.getRequestURL().toString();
         return siteURL.replace(request.getServletPath(), "");

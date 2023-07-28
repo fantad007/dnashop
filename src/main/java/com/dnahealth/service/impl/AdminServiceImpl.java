@@ -81,6 +81,17 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
+    public void getNewPasswordWhenForgetOldPassword(String email) {
+        AdminEntity admin;
+        if (adminRepository.findByEmail(email).isPresent()) {
+            admin = adminRepository.findByEmail(email).get();
+            updatePassword(admin, "Dung123456;");
+        } else {
+            log.info("Không tìm thấy tài khoản nào tương ứng");
+        }
+    }
+
+    @Override
     public void sendEmailVerify(AdminEntity admin, String siteURL) {
         try {
             MimeMessage message = mailSender.createMimeMessage();
